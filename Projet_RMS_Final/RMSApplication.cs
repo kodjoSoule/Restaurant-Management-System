@@ -90,5 +90,19 @@ namespace Projet_RMS_Final
             FormProduit formProduit = new FormProduit();
             formProduit.Show();
         }
+        internal void Deconnexion(Form? f)
+        {
+            RMSApplication.Instance.ShowAuthentificationUI();
+            if(f!= null ) 
+            f.Close();
+        }
+        internal void quitter()
+        {
+            DialogResult result = MessageBox.Show("Voulez-vous vraiment quitter ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
     }
 }

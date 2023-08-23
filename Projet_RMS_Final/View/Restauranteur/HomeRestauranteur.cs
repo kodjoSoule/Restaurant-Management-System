@@ -43,5 +43,31 @@ namespace Projet_RMS_Final.View.Restauranteur
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ListeProduitRestauranteur listeProduitRestauranteur = new ListeProduitRestauranteur();
+            listeProduitRestauranteur.Show();
+            this.Hide();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void accueilToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HomeRestauranteur homeRestauranteur = new HomeRestauranteur();
+            homeRestauranteur.Show();
+            this.Hide();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            ListeCommande listeCommande = new ListeCommande();
+            listeCommande.Show();
+            this.Hide();
+        }
     }
 }

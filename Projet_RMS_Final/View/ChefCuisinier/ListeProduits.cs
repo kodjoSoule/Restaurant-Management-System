@@ -1,14 +1,5 @@
 ﻿using Projet_RMS_Final.Dao;
 using Projet_RMS_Final.Model;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Projet_RMS_Final.View.ChefCuisinier
 {
@@ -165,6 +156,63 @@ namespace Projet_RMS_Final.View.ChefCuisinier
                 MessageBox.Show("Sélectionnez un produit à supprimer.",
                                 "Aucune sélection", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+        }
+
+        private void fichierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void accueilToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void deconnecterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void produitsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void ajouterUnProduitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void categorieProduitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void listeDesProduitsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void aProposToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void aProposToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void labelCategorie_Click(object sender, EventArgs e)
+        {
         }
     }
 }

@@ -63,6 +63,7 @@
             label5.Size = new Size(110, 28);
             label5.TabIndex = 9;
             label5.Text = "Recherche";
+            label5.Click += label5_Click;
             // 
             // textBoxSearch
             // 
@@ -135,6 +136,7 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 38;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // label1
             // 
@@ -169,6 +171,7 @@
             menuStrip1.Size = new Size(1428, 33);
             menuStrip1.TabIndex = 41;
             menuStrip1.Text = "menuStrip1";
+            menuStrip1.ItemClicked += menuStrip1_ItemClicked;
             // 
             // fichierToolStripMenuItem
             // 
@@ -176,24 +179,28 @@
             fichierToolStripMenuItem.Name = "fichierToolStripMenuItem";
             fichierToolStripMenuItem.Size = new Size(78, 29);
             fichierToolStripMenuItem.Text = "Fichier";
+            fichierToolStripMenuItem.Click += fichierToolStripMenuItem_Click;
             // 
             // accueilToolStripMenuItem
             // 
             accueilToolStripMenuItem.Name = "accueilToolStripMenuItem";
             accueilToolStripMenuItem.Size = new Size(213, 34);
             accueilToolStripMenuItem.Text = "Accueil";
+            accueilToolStripMenuItem.Click += accueilToolStripMenuItem_Click;
             // 
             // deconnecterToolStripMenuItem
             // 
             deconnecterToolStripMenuItem.Name = "deconnecterToolStripMenuItem";
             deconnecterToolStripMenuItem.Size = new Size(213, 34);
             deconnecterToolStripMenuItem.Text = "Deconnecter";
+            deconnecterToolStripMenuItem.Click += deconnecterToolStripMenuItem_Click;
             // 
             // quitterToolStripMenuItem
             // 
             quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
             quitterToolStripMenuItem.Size = new Size(213, 34);
             quitterToolStripMenuItem.Text = "Quitter";
+            quitterToolStripMenuItem.Click += quitterToolStripMenuItem_Click;
             // 
             // produitsToolStripMenuItem
             // 
@@ -201,24 +208,28 @@
             produitsToolStripMenuItem.Name = "produitsToolStripMenuItem";
             produitsToolStripMenuItem.Size = new Size(94, 29);
             produitsToolStripMenuItem.Text = "Produits";
+            produitsToolStripMenuItem.Click += produitsToolStripMenuItem_Click;
             // 
             // ajouterUnProduitToolStripMenuItem
             // 
             ajouterUnProduitToolStripMenuItem.Name = "ajouterUnProduitToolStripMenuItem";
             ajouterUnProduitToolStripMenuItem.Size = new Size(260, 34);
             ajouterUnProduitToolStripMenuItem.Text = "Ajouter un Produit";
+            ajouterUnProduitToolStripMenuItem.Click += ajouterUnProduitToolStripMenuItem_Click;
             // 
             // categorieProduitToolStripMenuItem
             // 
             categorieProduitToolStripMenuItem.Name = "categorieProduitToolStripMenuItem";
             categorieProduitToolStripMenuItem.Size = new Size(260, 34);
             categorieProduitToolStripMenuItem.Text = "Categorie Produit";
+            categorieProduitToolStripMenuItem.Click += categorieProduitToolStripMenuItem_Click;
             // 
             // listeDesProduitsToolStripMenuItem
             // 
             listeDesProduitsToolStripMenuItem.Name = "listeDesProduitsToolStripMenuItem";
             listeDesProduitsToolStripMenuItem.Size = new Size(260, 34);
             listeDesProduitsToolStripMenuItem.Text = "Liste des Produits";
+            listeDesProduitsToolStripMenuItem.Click += listeDesProduitsToolStripMenuItem_Click;
             // 
             // aProposToolStripMenuItem
             // 
@@ -226,12 +237,14 @@
             aProposToolStripMenuItem.Name = "aProposToolStripMenuItem";
             aProposToolStripMenuItem.Size = new Size(102, 29);
             aProposToolStripMenuItem.Text = "A Propos";
+            aProposToolStripMenuItem.Click += aProposToolStripMenuItem_Click;
             // 
             // aProposToolStripMenuItem1
             // 
             aProposToolStripMenuItem1.Name = "aProposToolStripMenuItem1";
             aProposToolStripMenuItem1.Size = new Size(189, 34);
             aProposToolStripMenuItem1.Text = "A propos";
+            aProposToolStripMenuItem1.Click += aProposToolStripMenuItem1_Click;
             // 
             // labelCategorie
             // 
@@ -241,6 +254,7 @@
             labelCategorie.Name = "labelCategorie";
             labelCategorie.Size = new Size(0, 32);
             labelCategorie.TabIndex = 42;
+            labelCategorie.Click += labelCategorie_Click;
             // 
             // ListeProduits
             // 

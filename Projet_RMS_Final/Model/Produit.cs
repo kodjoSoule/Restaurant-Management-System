@@ -28,6 +28,10 @@ namespace Projet_RMS_Final.Model
             Image = null;
 
         }
+        public override string ToString()
+        {
+            return $"{Id} | {Intitule}";
+        }
 
 
     }

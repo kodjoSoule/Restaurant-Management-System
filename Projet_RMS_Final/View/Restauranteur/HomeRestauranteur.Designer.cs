@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeRestauranteur));
             panel2 = new Panel();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
             menuStrip1 = new MenuStrip();
             fichierToolStripMenuItem = new ToolStripMenuItem();
             accueilToolStripMenuItem = new ToolStripMenuItem();
@@ -55,6 +54,7 @@
             button1 = new Button();
             labelUser = new Label();
             label1 = new Label();
+            button5 = new Button();
             panel2.SuspendLayout();
             menuStrip1.SuspendLayout();
             panel1.SuspendLayout();
@@ -64,7 +64,7 @@
             // 
             panel2.BackgroundImage = (Image)resources.GetObject("panel2.BackgroundImage");
             panel2.BackgroundImageLayout = ImageLayout.Stretch;
-            panel2.Controls.Add(iconButton1);
+            panel2.Controls.Add(button5);
             panel2.Controls.Add(menuStrip1);
             panel2.Controls.Add(button3);
             panel2.Controls.Add(button4);
@@ -77,18 +77,6 @@
             panel2.Size = new Size(1428, 694);
             panel2.TabIndex = 3;
             // 
-            // iconButton1
-            // 
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.ProductHunt;
-            iconButton1.IconColor = Color.Black;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.Location = new Point(90, 289);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(115, 67);
-            iconButton1.TabIndex = 9;
-            iconButton1.Text = "iconButton1";
-            iconButton1.UseVisualStyleBackColor = true;
-            // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(24, 24);
@@ -98,6 +86,7 @@
             menuStrip1.Size = new Size(1428, 33);
             menuStrip1.TabIndex = 8;
             menuStrip1.Text = "menuStrip1";
+            menuStrip1.ItemClicked += menuStrip1_ItemClicked;
             // 
             // fichierToolStripMenuItem
             // 
@@ -111,6 +100,7 @@
             accueilToolStripMenuItem.Name = "accueilToolStripMenuItem";
             accueilToolStripMenuItem.Size = new Size(213, 34);
             accueilToolStripMenuItem.Text = "Accueil";
+            accueilToolStripMenuItem.Click += accueilToolStripMenuItem_Click;
             // 
             // deconnecterToolStripMenuItem
             // 
@@ -223,15 +213,16 @@
             // 
             button2.BackColor = Color.Transparent;
             button2.Cursor = Cursors.Hand;
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.ForeColor = Color.Orange;
-            button2.Location = new Point(280, 289);
+            button2.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.ForeColor = Color.Green;
+            button2.Location = new Point(35, 338);
             button2.Name = "button2";
             button2.Padding = new Padding(10);
-            button2.Size = new Size(322, 67);
+            button2.Size = new Size(460, 81);
             button2.TabIndex = 2;
             button2.Text = "Liste des Produits dispnibles";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // labelUtilisateur
             // 
@@ -306,6 +297,21 @@
             label1.TabIndex = 0;
             label1.Text = "Bienvenue";
             // 
+            // button5
+            // 
+            button5.BackColor = Color.Transparent;
+            button5.Cursor = Cursors.Hand;
+            button5.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            button5.ForeColor = Color.Orange;
+            button5.Location = new Point(527, 338);
+            button5.Name = "button5";
+            button5.Padding = new Padding(10);
+            button5.Size = new Size(460, 81);
+            button5.TabIndex = 9;
+            button5.Text = "Liste des Commandes";
+            button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
+            // 
             // HomeRestauranteur
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -327,7 +333,6 @@
         #endregion
 
         private Label label1;
-        private FontAwesome.Sharp.IconButton iconButton1;
         private Panel panel2;
         private Label label4;
         private Button button3;
@@ -356,5 +361,6 @@
         private ToolStripMenuItem recetteToolStripMenuItem;
         private ToolStripMenuItem listeDesRecettesToolStripMenuItem;
         private ToolStripMenuItem aProposToolStripMenuItem1;
+        private Button button5;
     }
 }
