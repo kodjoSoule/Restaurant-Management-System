@@ -106,10 +106,12 @@
             // 
             // textBoxId
             // 
+            textBoxId.Cursor = Cursors.Hand;
             textBoxId.Location = new Point(304, 89);
             textBoxId.Name = "textBoxId";
             textBoxId.Size = new Size(274, 31);
             textBoxId.TabIndex = 20;
+            textBoxId.TextChanged += textBoxId_TextChanged;
             // 
             // label9
             // 
@@ -127,15 +129,15 @@
             // iconButton1
             // 
             iconButton1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
-            iconButton1.IconColor = Color.Black;
+            iconButton1.IconChar = FontAwesome.Sharp.IconChar.HandPointLeft;
+            iconButton1.IconColor = Color.Green;
             iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.IconSize = 50;
+            iconButton1.IconSize = 40;
             iconButton1.Location = new Point(21, 15);
             iconButton1.Name = "iconButton1";
             iconButton1.Size = new Size(150, 55);
             iconButton1.TabIndex = 18;
-            iconButton1.Text = "Retour";
+            iconButton1.Text = "Accueil";
             iconButton1.TextImageRelation = TextImageRelation.ImageBeforeText;
             iconButton1.UseVisualStyleBackColor = true;
             iconButton1.Click += iconButton1_Click;
@@ -391,7 +393,6 @@
             dataGridViewUsers.RowTemplate.Height = 33;
             dataGridViewUsers.Size = new Size(778, 411);
             dataGridViewUsers.TabIndex = 0;
-            //dataGridViewUsers.CellContentClick += dataGridViewUsers_CellContentClick;
             dataGridViewUsers.CellClick += dataGridViewUsers_CellClick;
             // 
             // ListeUtilisateurForm

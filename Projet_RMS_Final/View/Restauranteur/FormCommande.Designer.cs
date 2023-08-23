@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCommande));
             label9 = new Label();
             iconButton1 = new FontAwesome.Sharp.IconButton();
             buttonEffacer = new Button();
@@ -129,23 +128,26 @@
             // 
             // textBoxQuantite
             // 
+            textBoxQuantite.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             textBoxQuantite.Location = new Point(227, 263);
             textBoxQuantite.Name = "textBoxQuantite";
-            textBoxQuantite.Size = new Size(274, 31);
+            textBoxQuantite.Size = new Size(274, 39);
             textBoxQuantite.TabIndex = 30;
             // 
             // textBoxPrix
             // 
-            textBoxPrix.Location = new Point(227, 202);
+            textBoxPrix.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxPrix.Location = new Point(226, 205);
             textBoxPrix.Name = "textBoxPrix";
-            textBoxPrix.Size = new Size(274, 31);
+            textBoxPrix.Size = new Size(274, 39);
             textBoxPrix.TabIndex = 29;
             // 
             // textBoxProduit
             // 
+            textBoxProduit.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             textBoxProduit.Location = new Point(226, 144);
             textBoxProduit.Name = "textBoxProduit";
-            textBoxProduit.Size = new Size(274, 31);
+            textBoxProduit.Size = new Size(274, 39);
             textBoxProduit.TabIndex = 28;
             // 
             // label6
@@ -206,7 +208,7 @@
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(77, 313);
+            label4.Location = new Point(80, 321);
             label4.Name = "label4";
             label4.Padding = new Padding(5);
             label4.Size = new Size(77, 42);
@@ -241,30 +243,34 @@
             // 
             // textBoxNomClient
             // 
+            textBoxNomClient.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             textBoxNomClient.Location = new Point(822, 142);
             textBoxNomClient.Name = "textBoxNomClient";
-            textBoxNomClient.Size = new Size(274, 31);
+            textBoxNomClient.Size = new Size(274, 39);
             textBoxNomClient.TabIndex = 40;
             // 
             // textBoxTelephone
             // 
+            textBoxTelephone.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             textBoxTelephone.Location = new Point(822, 271);
             textBoxTelephone.Name = "textBoxTelephone";
-            textBoxTelephone.Size = new Size(274, 31);
+            textBoxTelephone.Size = new Size(274, 39);
             textBoxTelephone.TabIndex = 41;
             // 
             // textBoxPrenomClient
             // 
+            textBoxPrenomClient.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             textBoxPrenomClient.Location = new Point(822, 211);
             textBoxPrenomClient.Name = "textBoxPrenomClient";
-            textBoxPrenomClient.Size = new Size(274, 31);
+            textBoxPrenomClient.Size = new Size(274, 39);
             textBoxPrenomClient.TabIndex = 42;
             // 
             // textBoxEmail
             // 
+            textBoxEmail.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             textBoxEmail.Location = new Point(822, 334);
             textBoxEmail.Name = "textBoxEmail";
-            textBoxEmail.Size = new Size(274, 31);
+            textBoxEmail.Size = new Size(274, 39);
             textBoxEmail.TabIndex = 43;
             // 
             // label5
@@ -295,9 +301,10 @@
             // 
             // textBoxAddresse
             // 
+            textBoxAddresse.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             textBoxAddresse.Location = new Point(822, 398);
             textBoxAddresse.Name = "textBoxAddresse";
-            textBoxAddresse.Size = new Size(274, 31);
+            textBoxAddresse.Size = new Size(274, 39);
             textBoxAddresse.TabIndex = 46;
             // 
             // label11
@@ -314,17 +321,19 @@
             // 
             // dateTimePickerDate
             // 
-            dateTimePickerDate.Location = new Point(227, 314);
+            dateTimePickerDate.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dateTimePickerDate.Location = new Point(227, 320);
             dateTimePickerDate.Name = "dateTimePickerDate";
-            dateTimePickerDate.Size = new Size(274, 31);
+            dateTimePickerDate.Size = new Size(274, 39);
             dateTimePickerDate.TabIndex = 48;
             // 
             // comboBoxStatut
             // 
+            comboBoxStatut.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             comboBoxStatut.FormattingEnabled = true;
             comboBoxStatut.Location = new Point(227, 387);
             comboBoxStatut.Name = "comboBoxStatut";
-            comboBoxStatut.Size = new Size(274, 33);
+            comboBoxStatut.Size = new Size(274, 40);
             comboBoxStatut.TabIndex = 49;
             comboBoxStatut.SelectedIndexChanged += comboBoxStatut_SelectedIndexChanged;
             // 
@@ -445,7 +454,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackColor = Color.Chocolate;
             ClientSize = new Size(1428, 694);
             Controls.Add(menuStrip1);
             Controls.Add(buttonAnnuler);

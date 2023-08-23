@@ -101,6 +101,7 @@ namespace Projet_RMS_Final.Authentification
                     if (utilisateur.Authenticate())
                     {
                         //MessageBox.Show(utilisateur.ToString());
+                        RMSApplication.Instance.User = utilisateur;
                         switch (utilisateur.Role)
                         {
                             case "Administrateur":
@@ -109,6 +110,7 @@ namespace Projet_RMS_Final.Authentification
                                 //HomeAdministrateur homeAdministrateur = new HomeAdministrateur();
                                 //homeAdministrateur.Show();
                                 //homeAdministrateur.setUtilisateur(utilisateur);
+                                
                                 RMSApplication.Instance.ShowHomeAdministrateurUI();
                                 this.cleanForm();
                                 this.Hide();
@@ -161,7 +163,7 @@ namespace Projet_RMS_Final.Authentification
                 Application.Exit();
             }
         }
-
+        
         private void textBoxLogin_TextChanged(object sender, EventArgs e)
         {
 

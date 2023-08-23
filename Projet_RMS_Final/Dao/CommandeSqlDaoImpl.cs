@@ -26,15 +26,19 @@ namespace Projet_RMS_Final.Dao
                 try
                 {
                     connection.Open();
-                    string query = "INSERT INTO T_Commandes (Date, Status, Quantite, MontantTotalProduits, MontantTotalCommande) VALUES (@Date, @Status, @Quantite, @MontantTotalProduits, @MontantTotalCommande); SELECT SCOPE_IDENTITY()";
+                    //string query = "INSERT INTO T_Commandes (Date, Status, Quantite, MontantTotalProduits, MontantTotalCommande, restauranteur_id, client_id) VALUES (@Date, @Status, @Quantite, @MontantTotalProduits, @MontantTotalCommande, @restauranteur_id, @client_id); SELECT SCOPE_IDENTITY()";
+                    string query = "INSERT INTO T_Commandes (Date, Status, MontantTotalCommande, restauranteur_id, client_id) VALUES (@Date, @Status, @MontantTotalCommande, @restauranteur_id, @client_id); SELECT SCOPE_IDENTITY()";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@Date", entity.Date);
                         command.Parameters.AddWithValue("@Status", entity.Status);
-                        command.Parameters.AddWithValue("@Quantite", entity.Quantite);
-                        command.Parameters.AddWithValue("@MontantTotalProduits", entity.MontantTotalProduits);
+                        //command.Parameters.AddWithValue("@Quantite", entity.Quantite);
+                        //command.Parameters.AddWithValue("@MontantTotalProduits", entity.MontantTotalProduits);
                         command.Parameters.AddWithValue("@MontantTotalCommande", entity.MontantTotalCommande);
-
+                        //client_id
+                        command.Parameters.AddWithValue("@client_id", entity.Client.Id);
+                        //restauranteur_id
+                        command.Parameters.AddWithValue("@restauranteur_id", entity.Restauranteur.Id);
                         int insertedId = Convert.ToInt32(command.ExecuteScalar());
 
                         entity.Id = insertedId;
@@ -61,8 +65,8 @@ namespace Projet_RMS_Final.Dao
                     {
                         command.Parameters.AddWithValue("@Date", entity.Date);
                         command.Parameters.AddWithValue("@Status", entity.Status);
-                        command.Parameters.AddWithValue("@Quantite", entity.Quantite);
-                        command.Parameters.AddWithValue("@MontantTotalProduits", entity.MontantTotalProduits);
+                        //command.Parameters.AddWithValue("@Quantite", entity.Quantite);
+                        //command.Parameters.AddWithValue("@MontantTotalProduits", entity.MontantTotalProduits);
                         command.Parameters.AddWithValue("@MontantTotalCommande", entity.MontantTotalCommande);
 
                         command.ExecuteNonQuery();
@@ -96,8 +100,7 @@ namespace Projet_RMS_Final.Dao
                                     Id = Convert.ToInt32(reader["Id"]),
                                     Date = Convert.ToDateTime(reader["Date"]),
                                     Status = reader["Status"].ToString(),
-                                    Quantite = Convert.ToInt32(reader["Quantite"]),
-                                    MontantTotalProduits = Convert.ToDouble(reader["MontantTotalProduits"]),
+                                    //Quantite = Convert.ToInt32(reader["Quantite"]),
                                     MontantTotalCommande = Convert.ToDouble(reader["MontantTotalCommande"])
                                 };
                                 return commande;
@@ -136,8 +139,8 @@ namespace Projet_RMS_Final.Dao
                                     Id = Convert.ToInt32(reader["Id"]),
                                     Date = Convert.ToDateTime(reader["Date"]),
                                     Status = reader["Status"].ToString(),
-                                    Quantite = Convert.ToInt32(reader["Quantite"]),
-                                    MontantTotalProduits = Convert.ToDouble(reader["MontantTotalProduits"]),
+                                    //Quantite = Convert.ToInt32(reader["Quantite"]),
+                                    //MontantTotalProduits = Convert.ToDouble(reader["MontantTotalProduits"]),
                                     MontantTotalCommande = Convert.ToDouble(reader["MontantTotalCommande"])
                                 };
                                 commandes.Add(commande);
@@ -160,14 +163,15 @@ namespace Projet_RMS_Final.Dao
                 try
                 {
                     connection.Open();
-                    string query = "UPDATE T_Commandes SET Date = @Date, Status = @Status, Quantite = @Quantite, MontantTotalProduits = @MontantTotalProduits, MontantTotalCommande = @MontantTotalCommande WHERE Id = @Id";
+                    //string query = "UPDATE T_Commandes SET Date = @Date, Status = @Status, Quantite = @Quantite, MontantTotalProduits = @MontantTotalProduits, MontantTotalCommande = @MontantTotalCommande WHERE Id = @Id";
+                    string query = "UPDATE T_Commandes SET Date = @Date, Status = @Status, MontantTotalCommande = @MontantTotalCommande WHERE Id = @Id";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@Id", entity.Id);
                         command.Parameters.AddWithValue("@Date", entity.Date);
                         command.Parameters.AddWithValue("@Status", entity.Status);
-                        command.Parameters.AddWithValue("@Quantite", entity.Quantite);
-                        command.Parameters.AddWithValue("@MontantTotalProduits", entity.MontantTotalProduits);
+                        //command.Parameters.AddWithValue("@Quantite", entity.Quantite);
+                        //command.Parameters.AddWithValue("@MontantTotalProduits", entity.MontantTotalProduits);
                         command.Parameters.AddWithValue("@MontantTotalCommande", entity.MontantTotalCommande);
 
                         command.ExecuteNonQuery();
@@ -176,6 +180,36 @@ namespace Projet_RMS_Final.Dao
                 catch (Exception ex)
                 {
                     throw new Exception("Erreur lors de la mise à jour : " + ex.Message);
+                }
+            }
+        }
+        public void Delete1(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    // Supprimez d'abord les lignes de commande liées à cette commande
+                    string deleteLinesQuery = "DELETE FROM T_LignesCommande WHERE commande_id = @CommandeId";
+                    using (SqlCommand deleteLinesCommand = new SqlCommand(deleteLinesQuery, connection))
+                    {
+                        deleteLinesCommand.Parameters.AddWithValue("@CommandeId", id);
+                        deleteLinesCommand.ExecuteNonQuery();
+                    }
+
+                    // Ensuite, supprimez la commande elle-même
+                    string deleteCommandQuery = "DELETE FROM T_Commandes WHERE Id = @Id";
+                    using (SqlCommand deleteCommandCommand = new SqlCommand(deleteCommandQuery, connection))
+                    {
+                        deleteCommandCommand.Parameters.AddWithValue("@Id", id);
+                        deleteCommandCommand.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Erreur lors de la suppression de la commande : " + ex.Message);
                 }
             }
         }

@@ -8,28 +8,23 @@ namespace Projet_RMS_Final.Model
         public int Id { get; set; }
         public DateTime Date { get; set; }
         public string Status { get; set; }
-        public int Quantite { get; set; }
-        public double MontantTotalProduits { get; set; }
-        public double MontantTotalCommande { get; set; }
+        //public int Quantite { get; set; }
+        //public double MontantTotalProduits { get; set; }
+        public double MontantTotalCommande { get; set; } = 0.0 ;
 
         public List<Produit> Produits { get; set; } = new List<Produit>();
         public Utilisateur Restauranteur { get; set; }
         public Paiement Paiement { get; set; }
         public Client Client { get; set; }
-        //public Recette Recette { get; set; }
+        
 
         public List<LigneCommande> LignesCommande { get; set; } = new List<LigneCommande>();
 
-        public void AjouterProduit(Produit produit, int quantite)
+        
+        public void addProduit(Produit produit)
         {
-            produit.QuantiteStock = quantite;
-            Produits.Add(produit);
-        }
-
-        public void AjouterProduit(Produit produit)
-        {
-            Produits.Add(produit);
-            MontantTotalCommande += produit.Total;
+            //Produits.Add(produit);
+            //MontantTotalCommande += produit;
         }
 
         public void RemoveProduit(Produit produit)
@@ -46,8 +41,8 @@ namespace Projet_RMS_Final.Model
             Id = 0;
             Date = DateTime.Now;
             Status = "";
-            Quantite = 1;
-            MontantTotalProduits = 0;
+            //Quantite = 1;
+            //MontantTotalProduits = 0;
             MontantTotalCommande = 0;
             Restauranteur = null;
         }
@@ -57,7 +52,7 @@ namespace Projet_RMS_Final.Model
             Id = id;
             Date = date;
             Status = status;
-            Quantite = quantite;
+            //Quantite = quantite;
             Restauranteur = restauranteur;
             Produits = produits;
         }
@@ -67,7 +62,7 @@ namespace Projet_RMS_Final.Model
             Id = id;
             Date = date;
             Status = status;
-            Quantite = quantite;
+            //Quantite = quantite;
         }
 
         public Commande(int id, DateTime date, string status, int quantite, Utilisateur restauranteur)
@@ -75,7 +70,7 @@ namespace Projet_RMS_Final.Model
             Id = id;
             Date = date;
             Status = status;
-            Quantite = quantite;
+            //Quantite = quantite;
             Restauranteur = restauranteur;
         }
     }

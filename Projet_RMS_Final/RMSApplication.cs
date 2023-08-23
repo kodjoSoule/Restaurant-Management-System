@@ -1,5 +1,6 @@
 ﻿
 using Projet_RMS_Final.Authentification;
+using Projet_RMS_Final.Model;
 using Projet_RMS_Final.View.Administrateur;
 using Projet_RMS_Final.View.ChefCuisinier;
 using Projet_RMS_Final.View.Restauranteur;
@@ -33,6 +34,8 @@ namespace Projet_RMS_Final
         }
         //
         private static RMSApplication instance = null;
+
+        public Utilisateur User { get; set; }
         public static RMSApplication Instance
         {
             get
@@ -104,5 +107,7 @@ namespace Projet_RMS_Final
                 Application.Exit();
             }
         }
+        
+
     }
 }

@@ -59,10 +59,12 @@ namespace Projet_RMS_Final.Model
         {
             return Id.GetHashCode();
         }
+
         public override string ToString()
         {
-            return $"{Id} \n {Nom} \n {Prenom} \n  {Role} \n  {Login} \n  {Email} \n  {Telephone}";
+            return $"{Nom}";
         }
+        
 
         
     }

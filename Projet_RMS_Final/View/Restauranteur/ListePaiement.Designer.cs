@@ -200,11 +200,11 @@
             // 
             dataGridViewUsers.BackgroundColor = Color.White;
             dataGridViewUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewUsers.Location = new Point(90, 151);
+            dataGridViewUsers.Location = new Point(90, 180);
             dataGridViewUsers.Name = "dataGridViewUsers";
             dataGridViewUsers.RowHeadersWidth = 62;
             dataGridViewUsers.RowTemplate.Height = 33;
-            dataGridViewUsers.Size = new Size(1237, 411);
+            dataGridViewUsers.Size = new Size(1237, 382);
             dataGridViewUsers.TabIndex = 53;
             // 
             // ListePaiement

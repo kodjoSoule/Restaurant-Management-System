@@ -13,7 +13,6 @@ namespace Projet_RMS_Final.Model
         public string Intitule { get; set; }
         public double Prix { get; set; }
         public int QuantiteStock { get; set; }
-        public double Total => Prix * QuantiteStock;
         public string Description { get; set; }
         public byte[] Image { get; set; }
         public List<Commande> Commandes { get; set; } = new List<Commande>();

@@ -1,5 +1,6 @@
 ﻿using Projet_RMS_Final.Dao;
 using Projet_RMS_Final.Model;
+using Projet_RMS_Final.View.ChefCuisinier;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,11 +27,65 @@ namespace Projet_RMS_Final.View.Restauranteur
             InitializeComponent();
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            LoadLigneCommande();
+            //LoadLigneCommande();
+            LoadLinkedData();
+            dataGridView.Columns["Id"].Width = 60;
+            dataGridView.Columns["ProduitPrix"].Width = 100;
+            dataGridView.Columns["CommandeDate"].Width = 300;
         }
+
+        private void LoadLinkedData()
+        {
+            List<Tuple<Commande, Client, Produit, LigneCommande>> linkedData = ligneCommandeSqlDaoImpl.GetAllLinkedData();
+
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("Id");
+            //dataTable.Columns.Add("ProduitId");
+            dataTable.Columns.Add("ProduitNom");
+            dataTable.Columns.Add("ProduitPrix");
+
+            dataTable.Columns.Add("Quantite");
+            dataTable.Columns.Add("MontantTotalCommande");
+
+            dataTable.Columns.Add("CommandeDate");
+            dataTable.Columns.Add("CommandeStatus");
+            //dataTable.Columns.Add("ClientId");
+            dataTable.Columns.Add("ClientNom");
+            dataTable.Columns.Add("ClientPrenom");
+            dataTable.Columns.Add("ClientEmail");
+
+
+            //MontantTotalCommande
+
+            foreach (var tuple in linkedData)
+            {
+                dataTable.Rows.Add(
+                    tuple.Item1.Id,
+                    //tuple.Item3.Id,
+                    tuple.Item3.Intitule,
+                    tuple.Item3.Prix,
+                    tuple.Item4.Quantite,
+                    tuple.Item1.MontantTotalCommande,
+
+                    tuple.Item1.Date,
+                    tuple.Item1.Status,
+                    //tuple.Item2.Id,
+                    tuple.Item2.Nom,
+                    tuple.Item2.Prenom,
+                    tuple.Item2.Email
+
+
+
+                );
+            }
+
+            dataGridView.DataSource = dataTable;
+        }
+
         private void LoadLigneCommande()
         {
             List<LigneCommande> ligneCommande = ligneCommandeSqlDaoImpl.List();
+            //List<Commande> ligneCommande = commandeSqlDaoImpl.List();
             dataGridView.DataSource = ligneCommande;
         }
         private void iconButton1_Click(object sender, EventArgs e)
@@ -47,6 +102,7 @@ namespace Projet_RMS_Final.View.Restauranteur
 
         private void button2_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Payer Commande ....");
         }
 
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
@@ -67,14 +123,19 @@ namespace Projet_RMS_Final.View.Restauranteur
 
         private void accueilToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            HomeRestauranteur homeRestauranteur = new HomeRestauranteur();
+            homeRestauranteur.Show();
+            this.Hide();
         }
 
         private void deconnecterToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            RMSApplication.Instance.Deconnexion(this);
         }
 
         private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            RMSApplication.Instance.quitter();
         }
 
         private void produitsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -83,6 +144,9 @@ namespace Projet_RMS_Final.View.Restauranteur
 
         private void listeDesProduitsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ListeProduits listeProduits = new ListeProduits();
+            listeProduits.Show();
+            this.Hide();
         }
 
         private void aProposToolStripMenuItem_Click(object sender, EventArgs e)
@@ -95,6 +159,9 @@ namespace Projet_RMS_Final.View.Restauranteur
 
         private void listeDesCommandesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ListeCommande listeCommande = new ListeCommande();
+            listeCommande.Show();
+            this.Hide();
         }
 
         private void paiementsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -103,10 +170,16 @@ namespace Projet_RMS_Final.View.Restauranteur
 
         private void listeDesPaiementsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ListePaiement listePaiement = new ListePaiement();
+            listePaiement.Show();
+            this.Hide();
         }
 
         private void recetteToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ListePaiement recette = new ListePaiement();
+            recette.Show();
+            this.Hide();
         }
 
         private void listeDesRecettesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -116,5 +189,25 @@ namespace Projet_RMS_Final.View.Restauranteur
         private void aProposToolStripMenuItem1_Click(object sender, EventArgs e)
         {
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (dataGridView.SelectedRows.Count > 0)
+            {
+                // Obtenez l'ID de la commande sélectionnée dans le DataGridView
+                int commandeId = Convert.ToInt32(dataGridView.SelectedRows[0].Cells["Id"].Value);
+
+                // Appelez la méthode de suppression de la commande
+                commandeSqlDaoImpl.Delete1(commandeId);
+
+                // Rechargez les données pour mettre à jour la liste
+                LoadLinkedData();
+            }
+            else
+            {
+                MessageBox.Show("Veuillez sélectionner une commande à supprimer.", "Avertissement", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
     }
 }

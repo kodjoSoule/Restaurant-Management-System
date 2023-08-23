@@ -48,6 +48,7 @@
             recetteToolStripMenuItem = new ToolStripMenuItem();
             listeDesRecettesToolStripMenuItem = new ToolStripMenuItem();
             aProposToolStripMenuItem1 = new ToolStripMenuItem();
+            buttonSupprimerCommande = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -56,11 +57,11 @@
             // 
             dataGridView.BackgroundColor = Color.White;
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView.Location = new Point(90, 117);
+            dataGridView.Location = new Point(75, 132);
             dataGridView.Name = "dataGridView";
             dataGridView.RowHeadersWidth = 62;
             dataGridView.RowTemplate.Height = 33;
-            dataGridView.Size = new Size(1237, 411);
+            dataGridView.Size = new Size(1306, 434);
             dataGridView.TabIndex = 19;
             dataGridView.CellContentClick += dataGridViewUsers_CellContentClick;
             // 
@@ -86,7 +87,7 @@
             button2.Cursor = Cursors.Hand;
             button2.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
             button2.ForeColor = Color.White;
-            button2.Location = new Point(901, 571);
+            button2.Location = new Point(917, 597);
             button2.Name = "button2";
             button2.Size = new Size(252, 56);
             button2.TabIndex = 20;
@@ -227,11 +228,26 @@
             aProposToolStripMenuItem1.Text = "A propos";
             aProposToolStripMenuItem1.Click += aProposToolStripMenuItem1_Click;
             // 
+            // buttonSupprimerCommande
+            // 
+            buttonSupprimerCommande.BackColor = Color.Red;
+            buttonSupprimerCommande.Cursor = Cursors.Hand;
+            buttonSupprimerCommande.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonSupprimerCommande.ForeColor = Color.White;
+            buttonSupprimerCommande.Location = new Point(557, 597);
+            buttonSupprimerCommande.Name = "buttonSupprimerCommande";
+            buttonSupprimerCommande.Size = new Size(252, 56);
+            buttonSupprimerCommande.TabIndex = 53;
+            buttonSupprimerCommande.Text = "Supprimer Commande";
+            buttonSupprimerCommande.UseVisualStyleBackColor = false;
+            buttonSupprimerCommande.Click += button1_Click;
+            // 
             // ListeCommande
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1428, 694);
+            Controls.Add(buttonSupprimerCommande);
             Controls.Add(menuStrip1);
             Controls.Add(iconButton1);
             Controls.Add(label5);
@@ -270,5 +286,6 @@
         private ToolStripMenuItem recetteToolStripMenuItem;
         private ToolStripMenuItem listeDesRecettesToolStripMenuItem;
         private ToolStripMenuItem aProposToolStripMenuItem1;
+        private Button buttonSupprimerCommande;
     }
 }

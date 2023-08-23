@@ -26,10 +26,12 @@ namespace Projet_RMS_Final.View.Administrateur
             comboBoxRole.DataSource = Enum.GetValues(typeof(Role));
 
             utilisateurSqlDao = new UtilisateurSqlDaoImpl();
-
+            textBoxId.Enabled = false;
+            
             dataGridViewUsers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             loadUtilisateurs();
             ClearRegistrationFields();
+
         }
         private void loadUtilisateurs()
         {
@@ -193,6 +195,7 @@ namespace Projet_RMS_Final.View.Administrateur
                         utilisateurDao.Create(newUser);
                         MessageBox.Show("Utilisateur enregistré avec succès !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                        loadUtilisateurs();
                         // Réinitialiser les champs du formulaire après l'enregistrement
                         ClearRegistrationFields();
                     }
@@ -204,38 +207,37 @@ namespace Projet_RMS_Final.View.Administrateur
             }
         }
 
-        
+
 
         private void buttonSupprimer_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Voulez-vous vraiment supprimer ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.No)
+            if (result == DialogResult.Yes)
             {
-                //supprimer
-            }
-
-            if (dataGridViewUsers.SelectedRows.Count > 0)
-            {
-                int selectedUserId = Convert.ToInt32(dataGridViewUsers.SelectedRows[0].Cells["Id"].Value);
-
-                try
+                
+                if (dataGridViewUsers.SelectedRows.Count > 0)
                 {
-                    UtilisateurSqlDaoImpl utilisateurDao = new UtilisateurSqlDaoImpl();
-                    utilisateurDao.Delete(selectedUserId);
+                    int selectedUserId = Convert.ToInt32(dataGridViewUsers.SelectedRows[0].Cells["Id"].Value);
 
-                    // Actualiser les données dans le DataGridView
-                    loadUtilisateurs();
+                    try
+                    {
+                        UtilisateurSqlDaoImpl utilisateurDao = new UtilisateurSqlDaoImpl();
+                        utilisateurDao.Delete(selectedUserId);
+
+                        // Actualiser les données dans le DataGridView
+                        loadUtilisateurs();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Une erreur est survenue lors de la suppression : " + ex.Message,
+                                        "Erreur de suppression", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Une erreur est survenue lors de la suppression : " + ex.Message,
-                                    "Erreur de suppression", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Sélectionnez un utilisateur à supprimer.",
+                                    "Aucune sélection", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-            }
-            else
-            {
-                MessageBox.Show("Sélectionnez un utilisateur à supprimer.",
-                                "Aucune sélection", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -320,7 +322,7 @@ namespace Projet_RMS_Final.View.Administrateur
             //
             ClearRegistrationFields();
         }
-        
+
         private void dataGridViewUsers_SelectionChanged(object sender, EventArgs e)
         {
             //ClearRegistrationFields();
@@ -384,6 +386,11 @@ namespace Projet_RMS_Final.View.Administrateur
 
         private void label5_Click(object sender, EventArgs e)
         {
+        }
+
+        private void textBoxId_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

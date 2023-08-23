@@ -17,10 +17,7 @@ namespace Projet_RMS_Final.View.Administrateur
         public HomeAdministrateur()
         {
             InitializeComponent();
-            if (utilisateur != null)
-            {
-                labelUtilisateur.Text = this.utilisateur.Prenom + " " + utilisateur.Nom;
-            }
+            labelUtilisateur.Text = RMSApplication.Instance.User.ToString();
         }
 
         internal void setUtilisateur(Utilisateur utilisateur)

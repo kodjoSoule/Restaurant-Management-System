@@ -15,6 +15,8 @@ namespace Projet_RMS_Final.View.Restauranteur
         public HomeRestauranteur()
         {
             InitializeComponent();
+
+            labelUtilisateur.Text = RMSApplication.Instance.User.ToString();
         }
 
         private void button3_Click(object sender, EventArgs e)

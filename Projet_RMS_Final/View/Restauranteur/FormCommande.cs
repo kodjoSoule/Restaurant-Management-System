@@ -26,6 +26,8 @@ namespace Projet_RMS_Final.View.Restauranteur
 
         public FormCommande(Produit produit)
         {
+            
+            this.produit = produit;
             InitializeComponent();
             setProduit(produit);
         }
@@ -159,7 +161,6 @@ namespace Projet_RMS_Final.View.Restauranteur
             {
                 try
                 {
-
                     // Créer un nouveau client
                     client = new Client();
                     client.Nom = textBoxNomClient.Text;
@@ -174,11 +175,13 @@ namespace Projet_RMS_Final.View.Restauranteur
                     commande = new Commande();
                     commande.Date = dateTimePickerDate.Value;
                     commande.Status = comboBoxStatut.Text;
-                    commande.MontantTotalProduits = Convert.ToDouble(textBoxPrix.Text) * Convert.ToInt32(textBoxQuantite.Text);
-                    commande.Quantite = Convert.ToInt32(textBoxQuantite.Text);
+                    commande.MontantTotalCommande = (produit.Prix * Convert.ToInt32(textBoxQuantite.Text) );
+                    //commande.MontantTotalProduits = Convert.ToDouble(textBoxPrix.Text) * Convert.ToInt32(textBoxQuantite.Text);
+                    //commande.Quantite = Convert.ToInt32(textBoxQuantite.Text);
                     // Ajouter le client à la commande
                     commande.Client = client;
-                    
+                    commande.Restauranteur = RMSApplication.Instance.User;
+
                     // Enregistrer la commande dans la base de données
                     commande = commandeDao.Create1(commande);
 
