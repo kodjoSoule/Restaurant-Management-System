@@ -13,5 +13,9 @@ namespace Projet_RMS_Final.Model
         {
             Quantite += quantite;
         }
+        public override string ToString()
+        {
+            return $"{Id} \n {Commande.Client.ToString()} \n {Produit.ToString()}";
+        }
     }
 }

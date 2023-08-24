@@ -65,9 +65,6 @@
             listeDesCommandesToolStripMenuItem = new ToolStripMenuItem();
             paiementsToolStripMenuItem = new ToolStripMenuItem();
             listeDesPaiementsToolStripMenuItem = new ToolStripMenuItem();
-            recetteToolStripMenuItem = new ToolStripMenuItem();
-            listeDesRecettesToolStripMenuItem = new ToolStripMenuItem();
-            aProposToolStripMenuItem1 = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -86,14 +83,14 @@
             // 
             // iconButton1
             // 
-            iconButton1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            iconButton1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            iconButton1.IconChar = FontAwesome.Sharp.IconChar.HandPointLeft;
             iconButton1.IconColor = Color.Black;
             iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton1.IconSize = 40;
-            iconButton1.Location = new Point(27, 44);
+            iconButton1.Location = new Point(41, 53);
             iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(150, 40);
+            iconButton1.Size = new Size(150, 54);
             iconButton1.TabIndex = 38;
             iconButton1.Text = "Retour";
             iconButton1.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -353,7 +350,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(24, 24);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fichierToolStripMenuItem, produitsToolStripMenuItem, aProposToolStripMenuItem, paiementsToolStripMenuItem, recetteToolStripMenuItem, aProposToolStripMenuItem1 });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fichierToolStripMenuItem, produitsToolStripMenuItem, aProposToolStripMenuItem, paiementsToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1428, 33);
@@ -370,20 +367,20 @@
             // accueilToolStripMenuItem
             // 
             accueilToolStripMenuItem.Name = "accueilToolStripMenuItem";
-            accueilToolStripMenuItem.Size = new Size(213, 34);
+            accueilToolStripMenuItem.Size = new Size(270, 34);
             accueilToolStripMenuItem.Text = "Accueil";
             accueilToolStripMenuItem.Click += accueilToolStripMenuItem_Click;
             // 
             // deconnecterToolStripMenuItem
             // 
             deconnecterToolStripMenuItem.Name = "deconnecterToolStripMenuItem";
-            deconnecterToolStripMenuItem.Size = new Size(213, 34);
+            deconnecterToolStripMenuItem.Size = new Size(270, 34);
             deconnecterToolStripMenuItem.Text = "Deconnecter";
             // 
             // quitterToolStripMenuItem
             // 
             quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
-            quitterToolStripMenuItem.Size = new Size(213, 34);
+            quitterToolStripMenuItem.Size = new Size(270, 34);
             quitterToolStripMenuItem.Text = "Quitter";
             // 
             // produitsToolStripMenuItem
@@ -422,33 +419,14 @@
             // 
             paiementsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { listeDesPaiementsToolStripMenuItem });
             paiementsToolStripMenuItem.Name = "paiementsToolStripMenuItem";
-            paiementsToolStripMenuItem.Size = new Size(108, 29);
-            paiementsToolStripMenuItem.Text = "Paiements";
+            paiementsToolStripMenuItem.Size = new Size(85, 29);
+            paiementsToolStripMenuItem.Text = "Recette";
             // 
             // listeDesPaiementsToolStripMenuItem
             // 
             listeDesPaiementsToolStripMenuItem.Name = "listeDesPaiementsToolStripMenuItem";
-            listeDesPaiementsToolStripMenuItem.Size = new Size(269, 34);
+            listeDesPaiementsToolStripMenuItem.Size = new Size(270, 34);
             listeDesPaiementsToolStripMenuItem.Text = "Liste des paiements";
-            // 
-            // recetteToolStripMenuItem
-            // 
-            recetteToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { listeDesRecettesToolStripMenuItem });
-            recetteToolStripMenuItem.Name = "recetteToolStripMenuItem";
-            recetteToolStripMenuItem.Size = new Size(85, 29);
-            recetteToolStripMenuItem.Text = "Recette";
-            // 
-            // listeDesRecettesToolStripMenuItem
-            // 
-            listeDesRecettesToolStripMenuItem.Name = "listeDesRecettesToolStripMenuItem";
-            listeDesRecettesToolStripMenuItem.Size = new Size(248, 34);
-            listeDesRecettesToolStripMenuItem.Text = "Liste des recettes";
-            // 
-            // aProposToolStripMenuItem1
-            // 
-            aProposToolStripMenuItem1.Name = "aProposToolStripMenuItem1";
-            aProposToolStripMenuItem1.Size = new Size(103, 29);
-            aProposToolStripMenuItem1.Text = "A propos";
             // 
             // FormCommande
             // 

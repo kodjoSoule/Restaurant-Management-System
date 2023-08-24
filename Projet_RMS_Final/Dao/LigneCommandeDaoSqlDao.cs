@@ -59,6 +59,7 @@ namespace Projet_RMS_Final.Dao
                         p.Intitule AS ProduitNom,
                         p.Id AS ProduitId,
                         p.Prix AS PrixUnitaire,
+                        lc.id as ligneCommandeID,
                         lc.quantite AS Quantite,
                         CONVERT(VARCHAR(16), c.Date, 120) AS CommandeDate,
                         c.Status AS CommandeStatus,
@@ -80,15 +81,6 @@ namespace Projet_RMS_Final.Dao
                         {
                             while (reader.Read())
                             {
-                                Commande commande = new Commande
-                                {
-                                    Id = Convert.ToInt32(reader["CommandeId"]),
-                                    Date = Convert.ToDateTime(reader["CommandeDate"]),
-                                    Status = reader["CommandeStatus"].ToString(),
-                                    MontantTotalCommande = (double)reader["MontantTotalCommande"] 
-
-                                };
-
                                 Client client = new Client
                                 {
                                     Id = Convert.ToInt32(reader["ClientId"]),
@@ -96,16 +88,31 @@ namespace Projet_RMS_Final.Dao
                                     Prenom = reader["ClientPrenom"].ToString(),
                                     Email = reader["ClientTelephone"].ToString()
                                 };
-                                LigneCommande ligneCommande = new LigneCommande
+                                Commande commande = new Commande
                                 {
-                                    Quantite = Convert.ToInt32 (reader["Quantite"])
+                                    Id = Convert.ToInt32(reader["CommandeId"]),
+                                    Date = Convert.ToDateTime(reader["CommandeDate"]),
+                                    Status = reader["CommandeStatus"].ToString(),
+                                    MontantTotalCommande = (double)reader["MontantTotalCommande"],
+                                    Client = client 
+                                    
                                 };
+                                
                                 Produit produit = new Produit
                                 {
                                     Id = Convert.ToInt32(reader["ProduitId"]),
                                     Intitule = reader["ProduitNom"].ToString(),
                                     Prix = Convert.ToDouble(reader["PrixUnitaire"]),
                                 };
+                                LigneCommande ligneCommande = new LigneCommande
+                                {
+                                    //lc.id as ligneCommandeID
+                                    Id = Convert.ToInt32(reader["ligneCommandeID"]),
+                                    Commande = commande ,
+                                    Produit = produit,
+                                    Quantite = Convert.ToInt32 (reader["Quantite"])
+                                };
+                                
 
                                 linkedData.Add(new Tuple<Commande, Client, Produit, LigneCommande>(commande, client, produit, ligneCommande));
                             }
@@ -143,8 +150,57 @@ namespace Projet_RMS_Final.Dao
                 }
             }
         }
-
         public LigneCommande Read(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string query = "SELECT * FROM T_LignesCommande WHERE Id = @Id";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Id", id);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                LigneCommande ligneCommande = new LigneCommande
+                                {
+                                    Id = Convert.ToInt32(reader["Id"]),
+                                    Quantite = Convert.ToInt32(reader["Quantite"])
+                                };
+
+                                // Récupérer le produit associé
+                                int produitId = Convert.ToInt32(reader["produit_id"]);
+                                ProduitSqlDaoImpl produitSqlDaoImpl = new ProduitSqlDaoImpl();
+                                Produit produit = produitSqlDaoImpl.Read(produitId);
+                                ligneCommande.Produit = produit;
+
+                                // Récupérer la commande associée
+                                int commandeId = Convert.ToInt32(reader["commande_id"]);
+                                CommandeSqlDaoImpl commandeSqlDaoImpl = new CommandeSqlDaoImpl();
+                                Commande commande = commandeSqlDaoImpl.Read(commandeId);
+                                ligneCommande.Commande = commande;
+
+                                return ligneCommande;
+                            }
+                            else
+                            {
+                                return null;
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Erreur lors de la lecture : " + ex.Message);
+                }
+            }
+        }
+
+        public LigneCommande Read1(int id)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

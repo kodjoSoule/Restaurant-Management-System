@@ -45,9 +45,6 @@
             listeDesCommandesToolStripMenuItem = new ToolStripMenuItem();
             paiementsToolStripMenuItem = new ToolStripMenuItem();
             listeDesPaiementsToolStripMenuItem = new ToolStripMenuItem();
-            recetteToolStripMenuItem = new ToolStripMenuItem();
-            listeDesRecettesToolStripMenuItem = new ToolStripMenuItem();
-            aProposToolStripMenuItem1 = new ToolStripMenuItem();
             buttonSupprimerCommande = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             menuStrip1.SuspendLayout();
@@ -87,11 +84,11 @@
             button2.Cursor = Cursors.Hand;
             button2.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
             button2.ForeColor = Color.White;
-            button2.Location = new Point(917, 597);
+            button2.Location = new Point(856, 597);
             button2.Name = "button2";
-            button2.Size = new Size(252, 56);
+            button2.Size = new Size(146, 56);
             button2.TabIndex = 20;
-            button2.Text = "Payer Commande";
+            button2.Text = "Payer";
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
@@ -117,7 +114,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(24, 24);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fichierToolStripMenuItem, produitsToolStripMenuItem, aProposToolStripMenuItem, paiementsToolStripMenuItem, recetteToolStripMenuItem, aProposToolStripMenuItem1 });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fichierToolStripMenuItem, produitsToolStripMenuItem, aProposToolStripMenuItem, paiementsToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1428, 33);
@@ -195,8 +192,8 @@
             // 
             paiementsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { listeDesPaiementsToolStripMenuItem });
             paiementsToolStripMenuItem.Name = "paiementsToolStripMenuItem";
-            paiementsToolStripMenuItem.Size = new Size(108, 29);
-            paiementsToolStripMenuItem.Text = "Paiements";
+            paiementsToolStripMenuItem.Size = new Size(85, 29);
+            paiementsToolStripMenuItem.Text = "Recette";
             paiementsToolStripMenuItem.Click += paiementsToolStripMenuItem_Click;
             // 
             // listeDesPaiementsToolStripMenuItem
@@ -206,39 +203,17 @@
             listeDesPaiementsToolStripMenuItem.Text = "Liste des paiements";
             listeDesPaiementsToolStripMenuItem.Click += listeDesPaiementsToolStripMenuItem_Click;
             // 
-            // recetteToolStripMenuItem
-            // 
-            recetteToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { listeDesRecettesToolStripMenuItem });
-            recetteToolStripMenuItem.Name = "recetteToolStripMenuItem";
-            recetteToolStripMenuItem.Size = new Size(85, 29);
-            recetteToolStripMenuItem.Text = "Recette";
-            recetteToolStripMenuItem.Click += recetteToolStripMenuItem_Click;
-            // 
-            // listeDesRecettesToolStripMenuItem
-            // 
-            listeDesRecettesToolStripMenuItem.Name = "listeDesRecettesToolStripMenuItem";
-            listeDesRecettesToolStripMenuItem.Size = new Size(248, 34);
-            listeDesRecettesToolStripMenuItem.Text = "Liste des recettes";
-            listeDesRecettesToolStripMenuItem.Click += listeDesRecettesToolStripMenuItem_Click;
-            // 
-            // aProposToolStripMenuItem1
-            // 
-            aProposToolStripMenuItem1.Name = "aProposToolStripMenuItem1";
-            aProposToolStripMenuItem1.Size = new Size(103, 29);
-            aProposToolStripMenuItem1.Text = "A propos";
-            aProposToolStripMenuItem1.Click += aProposToolStripMenuItem1_Click;
-            // 
             // buttonSupprimerCommande
             // 
             buttonSupprimerCommande.BackColor = Color.Red;
             buttonSupprimerCommande.Cursor = Cursors.Hand;
             buttonSupprimerCommande.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
             buttonSupprimerCommande.ForeColor = Color.White;
-            buttonSupprimerCommande.Location = new Point(557, 597);
+            buttonSupprimerCommande.Location = new Point(1129, 597);
             buttonSupprimerCommande.Name = "buttonSupprimerCommande";
-            buttonSupprimerCommande.Size = new Size(252, 56);
+            buttonSupprimerCommande.Size = new Size(154, 56);
             buttonSupprimerCommande.TabIndex = 53;
-            buttonSupprimerCommande.Text = "Supprimer Commande";
+            buttonSupprimerCommande.Text = "Supprimer";
             buttonSupprimerCommande.UseVisualStyleBackColor = false;
             buttonSupprimerCommande.Click += button1_Click;
             // 
@@ -283,9 +258,6 @@
         private ToolStripMenuItem listeDesCommandesToolStripMenuItem;
         private ToolStripMenuItem paiementsToolStripMenuItem;
         private ToolStripMenuItem listeDesPaiementsToolStripMenuItem;
-        private ToolStripMenuItem recetteToolStripMenuItem;
-        private ToolStripMenuItem listeDesRecettesToolStripMenuItem;
-        private ToolStripMenuItem aProposToolStripMenuItem1;
         private Button buttonSupprimerCommande;
     }
 }

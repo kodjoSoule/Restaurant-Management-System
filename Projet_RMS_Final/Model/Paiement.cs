@@ -13,7 +13,7 @@ namespace Projet_RMS_Final.Model
         public string ModePaiement { get; set; }
 
         [ForeignKey("Commande")]
-        public int CommandeId { get; set; }
+        //public int CommandeId { get; set; }
         public Commande Commande { get; set; }
 
         public Paiement()
@@ -24,7 +24,7 @@ namespace Projet_RMS_Final.Model
             MontantRendue = 0;
             DatePaiement = DateTime.Now;
             ModePaiement = "";
-            CommandeId = 0;
+            //CommandeId = 0;
             Commande = null;
         }
     }

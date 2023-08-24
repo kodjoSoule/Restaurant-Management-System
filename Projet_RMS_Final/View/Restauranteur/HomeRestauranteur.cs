@@ -71,5 +71,15 @@ namespace Projet_RMS_Final.View.Restauranteur
             listeCommande.Show();
             this.Hide();
         }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+
+            DialogResult result = MessageBox.Show("Voulez-vous vraiment quitter ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
     }
 }

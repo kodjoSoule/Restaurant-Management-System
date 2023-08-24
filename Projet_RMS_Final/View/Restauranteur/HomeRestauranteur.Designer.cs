@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeRestauranteur));
             panel2 = new Panel();
+            iconButton1 = new FontAwesome.Sharp.IconButton();
+            button5 = new Button();
             menuStrip1 = new MenuStrip();
             fichierToolStripMenuItem = new ToolStripMenuItem();
             accueilToolStripMenuItem = new ToolStripMenuItem();
@@ -42,11 +44,7 @@
             listeDesCommandesToolStripMenuItem = new ToolStripMenuItem();
             paiementsToolStripMenuItem = new ToolStripMenuItem();
             listeDesPaiementsToolStripMenuItem = new ToolStripMenuItem();
-            recetteToolStripMenuItem = new ToolStripMenuItem();
-            listeDesRecettesToolStripMenuItem = new ToolStripMenuItem();
-            aProposToolStripMenuItem1 = new ToolStripMenuItem();
             button3 = new Button();
-            button4 = new Button();
             button2 = new Button();
             labelUtilisateur = new Label();
             label3 = new Label();
@@ -54,7 +52,6 @@
             button1 = new Button();
             labelUser = new Label();
             label1 = new Label();
-            button5 = new Button();
             panel2.SuspendLayout();
             menuStrip1.SuspendLayout();
             panel1.SuspendLayout();
@@ -64,10 +61,10 @@
             // 
             panel2.BackgroundImage = (Image)resources.GetObject("panel2.BackgroundImage");
             panel2.BackgroundImageLayout = ImageLayout.Stretch;
+            panel2.Controls.Add(iconButton1);
             panel2.Controls.Add(button5);
             panel2.Controls.Add(menuStrip1);
             panel2.Controls.Add(button3);
-            panel2.Controls.Add(button4);
             panel2.Controls.Add(button2);
             panel2.Controls.Add(labelUtilisateur);
             panel2.Controls.Add(label3);
@@ -77,10 +74,42 @@
             panel2.Size = new Size(1428, 694);
             panel2.TabIndex = 3;
             // 
+            // iconButton1
+            // 
+            iconButton1.BackColor = Color.Red;
+            iconButton1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            iconButton1.ForeColor = Color.White;
+            iconButton1.IconChar = FontAwesome.Sharp.IconChar.PowerOff;
+            iconButton1.IconColor = Color.White;
+            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton1.Location = new Point(281, 549);
+            iconButton1.Name = "iconButton1";
+            iconButton1.Size = new Size(194, 67);
+            iconButton1.TabIndex = 10;
+            iconButton1.Text = "Quitter";
+            iconButton1.TextImageRelation = TextImageRelation.ImageBeforeText;
+            iconButton1.UseVisualStyleBackColor = false;
+            iconButton1.Click += iconButton1_Click;
+            // 
+            // button5
+            // 
+            button5.BackColor = Color.Transparent;
+            button5.Cursor = Cursors.Hand;
+            button5.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            button5.ForeColor = Color.Orange;
+            button5.Location = new Point(527, 338);
+            button5.Name = "button5";
+            button5.Padding = new Padding(10);
+            button5.Size = new Size(460, 81);
+            button5.TabIndex = 9;
+            button5.Text = "Liste des Commandes";
+            button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
+            // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(24, 24);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fichierToolStripMenuItem, produitsToolStripMenuItem, aProposToolStripMenuItem, paiementsToolStripMenuItem, recetteToolStripMenuItem, aProposToolStripMenuItem1 });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fichierToolStripMenuItem, produitsToolStripMenuItem, aProposToolStripMenuItem, paiementsToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1428, 33);
@@ -151,33 +180,14 @@
             // 
             paiementsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { listeDesPaiementsToolStripMenuItem });
             paiementsToolStripMenuItem.Name = "paiementsToolStripMenuItem";
-            paiementsToolStripMenuItem.Size = new Size(108, 29);
-            paiementsToolStripMenuItem.Text = "Paiements";
+            paiementsToolStripMenuItem.Size = new Size(85, 29);
+            paiementsToolStripMenuItem.Text = "Recette";
             // 
             // listeDesPaiementsToolStripMenuItem
             // 
             listeDesPaiementsToolStripMenuItem.Name = "listeDesPaiementsToolStripMenuItem";
             listeDesPaiementsToolStripMenuItem.Size = new Size(269, 34);
             listeDesPaiementsToolStripMenuItem.Text = "Liste des paiements";
-            // 
-            // recetteToolStripMenuItem
-            // 
-            recetteToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { listeDesRecettesToolStripMenuItem });
-            recetteToolStripMenuItem.Name = "recetteToolStripMenuItem";
-            recetteToolStripMenuItem.Size = new Size(85, 29);
-            recetteToolStripMenuItem.Text = "Recette";
-            // 
-            // listeDesRecettesToolStripMenuItem
-            // 
-            listeDesRecettesToolStripMenuItem.Name = "listeDesRecettesToolStripMenuItem";
-            listeDesRecettesToolStripMenuItem.Size = new Size(248, 34);
-            listeDesRecettesToolStripMenuItem.Text = "Liste des recettes";
-            // 
-            // aProposToolStripMenuItem1
-            // 
-            aProposToolStripMenuItem1.Name = "aProposToolStripMenuItem1";
-            aProposToolStripMenuItem1.Size = new Size(103, 29);
-            aProposToolStripMenuItem1.Text = "A propos";
             // 
             // button3
             // 
@@ -193,21 +203,6 @@
             button3.Text = "Deconnexion";
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
-            // 
-            // button4
-            // 
-            button4.BackColor = Color.Red;
-            button4.Cursor = Cursors.Hand;
-            button4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button4.ForeColor = Color.White;
-            button4.Location = new Point(280, 549);
-            button4.Name = "button4";
-            button4.Padding = new Padding(10);
-            button4.Size = new Size(196, 67);
-            button4.TabIndex = 4;
-            button4.Text = "Quitter";
-            button4.UseVisualStyleBackColor = false;
-            button4.Click += button4_Click;
             // 
             // button2
             // 
@@ -240,7 +235,7 @@
             label3.AutoSize = true;
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.ForeColor = Color.FromArgb(105, 70, 221);
+            label3.ForeColor = Color.White;
             label3.Location = new Point(90, 103);
             label3.Name = "label3";
             label3.Size = new Size(264, 65);
@@ -297,21 +292,6 @@
             label1.TabIndex = 0;
             label1.Text = "Bienvenue";
             // 
-            // button5
-            // 
-            button5.BackColor = Color.Transparent;
-            button5.Cursor = Cursors.Hand;
-            button5.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
-            button5.ForeColor = Color.Orange;
-            button5.Location = new Point(527, 338);
-            button5.Name = "button5";
-            button5.Padding = new Padding(10);
-            button5.Size = new Size(460, 81);
-            button5.TabIndex = 9;
-            button5.Text = "Liste des Commandes";
-            button5.UseVisualStyleBackColor = false;
-            button5.Click += button5_Click;
-            // 
             // HomeRestauranteur
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -336,7 +316,6 @@
         private Panel panel2;
         private Label label4;
         private Button button3;
-        private Button button4;
         private Button buttonList;
         private Button button2;
         private Label labelUtilisateur;
@@ -358,9 +337,7 @@
         private ToolStripMenuItem listeDesCommandesToolStripMenuItem;
         private ToolStripMenuItem paiementsToolStripMenuItem;
         private ToolStripMenuItem listeDesPaiementsToolStripMenuItem;
-        private ToolStripMenuItem recetteToolStripMenuItem;
-        private ToolStripMenuItem listeDesRecettesToolStripMenuItem;
-        private ToolStripMenuItem aProposToolStripMenuItem1;
         private Button button5;
+        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }

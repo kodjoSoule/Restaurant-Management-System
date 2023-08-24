@@ -60,7 +60,7 @@ namespace Projet_RMS_Final.View.Restauranteur
             foreach (var tuple in linkedData)
             {
                 dataTable.Rows.Add(
-                    tuple.Item1.Id,
+                    tuple.Item4.Id,
                     //tuple.Item3.Id,
                     tuple.Item3.Intitule,
                     tuple.Item3.Prix,
@@ -102,9 +102,25 @@ namespace Projet_RMS_Final.View.Restauranteur
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Payer Commande ....");
+            if (dataGridView.SelectedRows.Count > 0)
+            {
+                // Obtenez la ligne de commande sélectionnée dans le DataGridView
+                int idLigneCommande = Convert.ToInt32(dataGridView.SelectedRows[0].Cells["Id"].Value);
+                
+                LigneCommande selectedLigneCommande = ligneCommandeSqlDaoImpl.Read(idLigneCommande);
+                
+                // Passez la ligne de commande à la fenêtre FormPaiement
+                FormPaiement formPaiement = new FormPaiement(selectedLigneCommande);
+                DialogResult dialogResult = formPaiement.ShowDialog();
+                _ = dialogResult;
+            }
+            else
+            {
+                MessageBox.Show("Veuillez sélectionner une commande pour effectuer le paiement.", "Avertissement", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
+        //
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
         }
@@ -192,20 +208,24 @@ namespace Projet_RMS_Final.View.Restauranteur
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (dataGridView.SelectedRows.Count > 0)
+            DialogResult result = MessageBox.Show("Voulez-vous vraiment supprimer ce commande ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
             {
-                // Obtenez l'ID de la commande sélectionnée dans le DataGridView
-                int commandeId = Convert.ToInt32(dataGridView.SelectedRows[0].Cells["Id"].Value);
+                if (dataGridView.SelectedRows.Count > 0)
+                {
+                    // Obtenez l'ID de la commande sélectionnée dans le DataGridView
+                    int commandeId = Convert.ToInt32(dataGridView.SelectedRows[0].Cells["Id"].Value);
 
-                // Appelez la méthode de suppression de la commande
-                commandeSqlDaoImpl.Delete1(commandeId);
+                    // Appelez la méthode de suppression de la commande
+                    commandeSqlDaoImpl.Delete1(commandeId);
 
-                // Rechargez les données pour mettre à jour la liste
-                LoadLinkedData();
-            }
-            else
-            {
-                MessageBox.Show("Veuillez sélectionner une commande à supprimer.", "Avertissement", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    // Rechargez les données pour mettre à jour la liste
+                    LoadLinkedData();
+                }
+                else
+                {
+                    MessageBox.Show("Veuillez sélectionner une commande à supprimer.", "Avertissement", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
 

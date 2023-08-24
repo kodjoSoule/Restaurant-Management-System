@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using Projet_RMS_Final.Model;
+using Projet_RMS_Final.View.Restauranteur;
 
 namespace Projet_RMS_Final.Dao
 {
@@ -103,6 +104,12 @@ namespace Projet_RMS_Final.Dao
                                     //Quantite = Convert.ToInt32(reader["Quantite"]),
                                     MontantTotalCommande = Convert.ToDouble(reader["MontantTotalCommande"])
                                 };
+                                // Récupérer le client associé
+                                int clientId = Convert.ToInt32(reader["client_id"]);
+                                ClientSqlDaoImpl clientSqlDaoImpl = new ClientSqlDaoImpl();
+                                Client client = clientSqlDaoImpl.Read(clientId);
+                                commande.Client = client;
+
                                 return commande;
                             }
                             else
