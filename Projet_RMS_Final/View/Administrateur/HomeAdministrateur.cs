@@ -1,13 +1,4 @@
 ﻿using Projet_RMS_Final.Model;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Projet_RMS_Final.View.Administrateur
 {
@@ -94,5 +85,43 @@ namespace Projet_RMS_Final.View.Administrateur
         private void label1_Click(object sender, EventArgs e)
         {
         }
+
+        private void ajouterUnProduitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void accueilToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HomeAdministrateur homeAdministrateur = new HomeAdministrateur();
+            homeAdministrateur.Show();
+            Close();
+        }
+
+        private void deconnecterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RMSApplication.Instance.Deconnexion(this);
+        }
+
+        private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RMSApplication.Instance.quitter();
+        }
+
+        private void listesDesUtilisateursToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            ListeUtilisateurForm listeUtilisateurForm = new ListeUtilisateurForm();
+            listeUtilisateurForm.Show();
+            Close();
+        }
+
+        private void ajouterUnUtilisateurToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListeUtilisateurForm listeUtilisateurForm = new ListeUtilisateurForm();
+            listeUtilisateurForm.Show();
+            Close();
+        }
+
     }
 }

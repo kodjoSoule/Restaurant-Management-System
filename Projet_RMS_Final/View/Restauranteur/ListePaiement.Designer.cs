@@ -28,11 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            aProposToolStripMenuItem1 = new ToolStripMenuItem();
-            recetteToolStripMenuItem = new ToolStripMenuItem();
-            listeDesRecettesToolStripMenuItem = new ToolStripMenuItem();
-            listeDesPaiementsToolStripMenuItem = new ToolStripMenuItem();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListePaiement));
             paiementsToolStripMenuItem = new ToolStripMenuItem();
+            listeDesPaiementsToolStripMenuItem = new ToolStripMenuItem();
             listeDesCommandesToolStripMenuItem = new ToolStripMenuItem();
             listeDesCommandeToolStripMenuItem = new ToolStripMenuItem();
             aProposToolStripMenuItem = new ToolStripMenuItem();
@@ -46,55 +44,40 @@
             iconButton1 = new FontAwesome.Sharp.IconButton();
             label5 = new Label();
             textBoxSearch = new TextBox();
-            button2 = new Button();
-            dataGridViewUsers = new DataGridView();
+            dataGridView = new DataGridView();
+            label1 = new Label();
+            comboBox1 = new ComboBox();
             menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewUsers).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
             // 
-            // aProposToolStripMenuItem1
+            // paiementsToolStripMenuItem
             // 
-            aProposToolStripMenuItem1.Name = "aProposToolStripMenuItem1";
-            aProposToolStripMenuItem1.Size = new Size(103, 29);
-            aProposToolStripMenuItem1.Text = "A propos";
-            // 
-            // recetteToolStripMenuItem
-            // 
-            recetteToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { listeDesRecettesToolStripMenuItem });
-            recetteToolStripMenuItem.Name = "recetteToolStripMenuItem";
-            recetteToolStripMenuItem.Size = new Size(85, 29);
-            recetteToolStripMenuItem.Text = "Recette";
-            // 
-            // listeDesRecettesToolStripMenuItem
-            // 
-            listeDesRecettesToolStripMenuItem.Name = "listeDesRecettesToolStripMenuItem";
-            listeDesRecettesToolStripMenuItem.Size = new Size(248, 34);
-            listeDesRecettesToolStripMenuItem.Text = "Liste des recettes";
+            paiementsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { listeDesPaiementsToolStripMenuItem });
+            paiementsToolStripMenuItem.Name = "paiementsToolStripMenuItem";
+            paiementsToolStripMenuItem.Size = new Size(85, 29);
+            paiementsToolStripMenuItem.Text = "Recette";
             // 
             // listeDesPaiementsToolStripMenuItem
             // 
             listeDesPaiementsToolStripMenuItem.Name = "listeDesPaiementsToolStripMenuItem";
             listeDesPaiementsToolStripMenuItem.Size = new Size(269, 34);
             listeDesPaiementsToolStripMenuItem.Text = "Liste des paiements";
-            // 
-            // paiementsToolStripMenuItem
-            // 
-            paiementsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { listeDesPaiementsToolStripMenuItem });
-            paiementsToolStripMenuItem.Name = "paiementsToolStripMenuItem";
-            paiementsToolStripMenuItem.Size = new Size(108, 29);
-            paiementsToolStripMenuItem.Text = "Paiements";
+            listeDesPaiementsToolStripMenuItem.Click += listeDesPaiementsToolStripMenuItem_Click;
             // 
             // listeDesCommandesToolStripMenuItem
             // 
             listeDesCommandesToolStripMenuItem.Name = "listeDesCommandesToolStripMenuItem";
             listeDesCommandesToolStripMenuItem.Size = new Size(296, 34);
             listeDesCommandesToolStripMenuItem.Text = "Liste des Commandes";
+            listeDesCommandesToolStripMenuItem.Click += listeDesCommandesToolStripMenuItem_Click;
             // 
             // listeDesCommandeToolStripMenuItem
             // 
             listeDesCommandeToolStripMenuItem.Name = "listeDesCommandeToolStripMenuItem";
             listeDesCommandeToolStripMenuItem.Size = new Size(296, 34);
             listeDesCommandeToolStripMenuItem.Text = "Commande un produit";
+            listeDesCommandeToolStripMenuItem.Click += listeDesCommandeToolStripMenuItem_Click;
             // 
             // aProposToolStripMenuItem
             // 
@@ -108,6 +91,7 @@
             listeDesProduitsToolStripMenuItem.Name = "listeDesProduitsToolStripMenuItem";
             listeDesProduitsToolStripMenuItem.Size = new Size(253, 34);
             listeDesProduitsToolStripMenuItem.Text = "Liste des Produits";
+            listeDesProduitsToolStripMenuItem.Click += listeDesProduitsToolStripMenuItem_Click;
             // 
             // produitsToolStripMenuItem
             // 
@@ -121,18 +105,21 @@
             quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
             quitterToolStripMenuItem.Size = new Size(213, 34);
             quitterToolStripMenuItem.Text = "Quitter";
+            quitterToolStripMenuItem.Click += quitterToolStripMenuItem_Click;
             // 
             // deconnecterToolStripMenuItem
             // 
             deconnecterToolStripMenuItem.Name = "deconnecterToolStripMenuItem";
             deconnecterToolStripMenuItem.Size = new Size(213, 34);
             deconnecterToolStripMenuItem.Text = "Deconnecter";
+            deconnecterToolStripMenuItem.Click += deconnecterToolStripMenuItem_Click;
             // 
             // accueilToolStripMenuItem
             // 
             accueilToolStripMenuItem.Name = "accueilToolStripMenuItem";
             accueilToolStripMenuItem.Size = new Size(213, 34);
             accueilToolStripMenuItem.Text = "Accueil";
+            accueilToolStripMenuItem.Click += accueilToolStripMenuItem_Click;
             // 
             // fichierToolStripMenuItem
             // 
@@ -144,96 +131,108 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(24, 24);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fichierToolStripMenuItem, produitsToolStripMenuItem, aProposToolStripMenuItem, paiementsToolStripMenuItem, recetteToolStripMenuItem, aProposToolStripMenuItem1 });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fichierToolStripMenuItem, produitsToolStripMenuItem, aProposToolStripMenuItem, paiementsToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1428, 33);
-            menuStrip1.TabIndex = 58;
+            menuStrip1.TabIndex = 59;
             menuStrip1.Text = "menuStrip1";
             // 
             // iconButton1
             // 
-            iconButton1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            iconButton1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             iconButton1.IconChar = FontAwesome.Sharp.IconChar.HandPointLeft;
-            iconButton1.IconColor = Color.Black;
+            iconButton1.IconColor = Color.Green;
             iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton1.IconSize = 40;
-            iconButton1.Location = new Point(34, 92);
+            iconButton1.Location = new Point(32, 135);
             iconButton1.Name = "iconButton1";
             iconButton1.Size = new Size(150, 45);
-            iconButton1.TabIndex = 57;
+            iconButton1.TabIndex = 58;
             iconButton1.Text = "Accueil";
             iconButton1.TextImageRelation = TextImageRelation.ImageBeforeText;
             iconButton1.UseVisualStyleBackColor = true;
+            iconButton1.Click += iconButton1_Click;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(286, 101);
+            label5.Location = new Point(284, 144);
             label5.Name = "label5";
             label5.Size = new Size(110, 28);
-            label5.TabIndex = 56;
+            label5.TabIndex = 57;
             label5.Text = "Recherche";
             // 
             // textBoxSearch
             // 
-            textBoxSearch.Location = new Point(446, 101);
+            textBoxSearch.Location = new Point(444, 144);
             textBoxSearch.Name = "textBoxSearch";
-            textBoxSearch.Size = new Size(772, 31);
-            textBoxSearch.TabIndex = 55;
+            textBoxSearch.Size = new Size(253, 31);
+            textBoxSearch.TabIndex = 56;
+            textBoxSearch.TextChanged += textBoxSearch_TextChanged;
             // 
-            // button2
+            // dataGridView
             // 
-            button2.BackColor = Color.Green;
-            button2.Cursor = Cursors.Hand;
-            button2.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(901, 605);
-            button2.Name = "button2";
-            button2.Size = new Size(252, 56);
-            button2.TabIndex = 54;
-            button2.Text = "Payer Commande";
-            button2.UseVisualStyleBackColor = false;
+            dataGridView.BackgroundColor = Color.White;
+            dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView.Location = new Point(76, 201);
+            dataGridView.Name = "dataGridView";
+            dataGridView.RowHeadersWidth = 62;
+            dataGridView.RowTemplate.Height = 33;
+            dataGridView.Size = new Size(1278, 434);
+            dataGridView.TabIndex = 54;
             // 
-            // dataGridViewUsers
+            // label1
             // 
-            dataGridViewUsers.BackgroundColor = Color.White;
-            dataGridViewUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewUsers.Location = new Point(90, 180);
-            dataGridViewUsers.Name = "dataGridViewUsers";
-            dataGridViewUsers.RowHeadersWidth = 62;
-            dataGridViewUsers.RowTemplate.Height = 33;
-            dataGridViewUsers.Size = new Size(1237, 382);
-            dataGridViewUsers.TabIndex = 53;
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(423, 59);
+            label1.Name = "label1";
+            label1.Size = new Size(393, 54);
+            label1.TabIndex = 60;
+            label1.Text = "Liste des Paiements";
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(758, 144);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(334, 33);
+            comboBox1.TabIndex = 61;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // ListePaiement
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1428, 694);
+            Controls.Add(comboBox1);
+            Controls.Add(label1);
             Controls.Add(menuStrip1);
             Controls.Add(iconButton1);
             Controls.Add(label5);
             Controls.Add(textBoxSearch);
-            Controls.Add(button2);
-            Controls.Add(dataGridViewUsers);
+            Controls.Add(dataGridView);
             Name = "ListePaiement";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ListePaiement";
+            Load += ListePaiement_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewUsers).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private ToolStripMenuItem aProposToolStripMenuItem1;
-        private ToolStripMenuItem recetteToolStripMenuItem;
-        private ToolStripMenuItem listeDesRecettesToolStripMenuItem;
-        private ToolStripMenuItem listeDesPaiementsToolStripMenuItem;
+        private Button buttonSupprimerCommande;
         private ToolStripMenuItem paiementsToolStripMenuItem;
+        private ToolStripMenuItem listeDesPaiementsToolStripMenuItem;
         private ToolStripMenuItem listeDesCommandesToolStripMenuItem;
         private ToolStripMenuItem listeDesCommandeToolStripMenuItem;
         private ToolStripMenuItem aProposToolStripMenuItem;
@@ -248,6 +247,9 @@
         private Label label5;
         private TextBox textBoxSearch;
         private Button button2;
-        private DataGridView dataGridViewUsers;
+        private DataGridView dataGridView;
+        private Button buttonDetails;
+        private Label label1;
+        private ComboBox comboBox1;
     }
 }

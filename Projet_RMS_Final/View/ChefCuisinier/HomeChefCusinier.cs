@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Projet_RMS_Final.View.Restauranteur;
 
 namespace Projet_RMS_Final.View.ChefCuisinier
 {
@@ -15,6 +7,7 @@ namespace Projet_RMS_Final.View.ChefCuisinier
         public HomeChefCusinier()
         {
             InitializeComponent();
+            labelUtilisateur.Text = RMSApplication.Instance.User.ToString();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -62,7 +55,7 @@ namespace Projet_RMS_Final.View.ChefCuisinier
         private void button2_Click(object sender, EventArgs e)
         {
             RMSApplication.Instance.ShowFormProduitUI();
-            this.Hide();
+            Close();
         }
 
         private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
@@ -74,13 +67,13 @@ namespace Projet_RMS_Final.View.ChefCuisinier
         {
 
             RMSApplication.Instance.ShowListProduits();
-            this.Hide();
+            Close();
         }
 
         private void accueilToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RMSApplication.Instance.ShowHomeChefCuisinier();
-            this.Hide();
+            Close();
         }
 
         private void deconnecterToolStripMenuItem_Click(object sender, EventArgs e)
@@ -96,6 +89,21 @@ namespace Projet_RMS_Final.View.ChefCuisinier
             {
                 Application.Exit();
             }
+        }
+
+        private void listeDesProduitsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListeProduitRestauranteur listeProduitRestauranteur = new ListeProduitRestauranteur();
+            listeProduitRestauranteur.Show();
+            Close();
+
+        }
+
+        private void ajouterUnProduitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormProduit formProduit = new FormProduit();
+            formProduit.Show();
+            Close();
         }
     }
 }

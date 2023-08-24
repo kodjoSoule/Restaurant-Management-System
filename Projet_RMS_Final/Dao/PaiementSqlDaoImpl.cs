@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using Projet_RMS_Final.Model;
 using System.Data.SqlClient;
-using Projet_RMS_Final.Model;
 
 namespace Projet_RMS_Final.Dao
 {
@@ -27,15 +24,14 @@ namespace Projet_RMS_Final.Dao
                 try
                 {
                     connection.Open();
-                    string query = "INSERT INTO T_Paiements (MontantPayer, MontantRecue, MontantRendue, DatePaiement, ModePaiement, CommandeId) VALUES (@MontantPayer, @MontantRecue, @MontantRendue, @DatePaiement, @ModePaiement, @CommandeId)";
+                    string query = "INSERT INTO T_Paiements (MontantPayer, MontantRecue, MontantRendue, DatePaiement,Commande_id ) VALUES (@MontantPayer, @MontantRecue, @MontantRendue, @DatePaiement, @CommandeId)";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@MontantPayer", entity.MontantPayer);
+                        command.Parameters.AddWithValue("@MontantPayer", entity.Commande.MontantTotalCommande);
                         command.Parameters.AddWithValue("@MontantRecue", entity.MontantRecue);
                         command.Parameters.AddWithValue("@MontantRendue", entity.MontantRendue);
                         command.Parameters.AddWithValue("@DatePaiement", entity.DatePaiement);
-                        command.Parameters.AddWithValue("@ModePaiement", entity.ModePaiement);
-                        command.Parameters.AddWithValue("@CommandeId", entity.CommandeId);
+                        command.Parameters.AddWithValue("@CommandeId", entity.Commande.Id);
 
                         command.ExecuteNonQuery();
                     }
@@ -70,8 +66,8 @@ namespace Projet_RMS_Final.Dao
                                     MontantRecue = Convert.ToDouble(reader["MontantRecue"]),
                                     MontantRendue = Convert.ToDouble(reader["MontantRendue"]),
                                     DatePaiement = Convert.ToDateTime(reader["DatePaiement"]),
-                                    ModePaiement = reader["ModePaiement"].ToString(),
-                                    CommandeId = Convert.ToInt32(reader["CommandeId"])
+                                    //ModePaiement = reader["ModePaiement"].ToString(),
+                                    // 
                                 };
                                 return paiement;
                             }
@@ -111,9 +107,14 @@ namespace Projet_RMS_Final.Dao
                                     MontantRecue = Convert.ToDouble(reader["MontantRecue"]),
                                     MontantRendue = Convert.ToDouble(reader["MontantRendue"]),
                                     DatePaiement = Convert.ToDateTime(reader["DatePaiement"]),
-                                    ModePaiement = reader["ModePaiement"].ToString(),
-                                    CommandeId = Convert.ToInt32(reader["CommandeId"])
+
+                                    //ModePaiement = reader["ModePaiement"].ToString(),
+
                                 };
+                                int Idcommande = Convert.ToInt32(reader["commande_id"]);
+                                CommandeSqlDaoImpl commandeSqlDaoImpl = new CommandeSqlDaoImpl();
+                                Commande commande = commandeSqlDaoImpl.Read(Idcommande);
+                                paiement.Commande = commande;
                                 paiements.Add(paiement);
                             }
                         }
@@ -125,6 +126,21 @@ namespace Projet_RMS_Final.Dao
                 }
             }
             return paiements;
+        }
+
+        public List<Paiement> GetPaiementsByDateRange(DateTime startDate, DateTime endDate)
+        {
+            List<Paiement> paiementsInRange = new List<Paiement>();
+            
+            foreach (Paiement paiement in this.List())
+            {
+                DateTime paiementDate = paiement.DatePaiement.Date; // Utilisez Date pour ignorer l'heure
+                if (!(paiementDate < startDate) && !(paiementDate > endDate))
+                {
+                    paiementsInRange.Add(paiement);
+                }
+            }
+            return paiementsInRange;
         }
 
         public void Update(Paiement entity)
@@ -142,8 +158,8 @@ namespace Projet_RMS_Final.Dao
                         command.Parameters.AddWithValue("@MontantRecue", entity.MontantRecue);
                         command.Parameters.AddWithValue("@MontantRendue", entity.MontantRendue);
                         command.Parameters.AddWithValue("@DatePaiement", entity.DatePaiement);
-                        command.Parameters.AddWithValue("@ModePaiement", entity.ModePaiement);
-                        command.Parameters.AddWithValue("@CommandeId", entity.CommandeId);
+                        //command.Parameters.AddWithValue("@ModePaiement", entity.ModePaiement);
+                        //command.Parameters.AddWithValue("@CommandeId", entity.CommandeId);
 
                         command.ExecuteNonQuery();
                     }

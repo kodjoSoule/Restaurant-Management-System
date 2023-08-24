@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Projet_RMS_Final.Model
+﻿namespace Projet_RMS_Final.Model
 {
     public class Recette
     {

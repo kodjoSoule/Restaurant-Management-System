@@ -1,14 +1,5 @@
 ﻿using Projet_RMS_Final.Dao;
 using Projet_RMS_Final.Model;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Projet_RMS_Final.View.ChefCuisinier
 {
@@ -20,7 +11,7 @@ namespace Projet_RMS_Final.View.ChefCuisinier
         {
             InitializeComponent();
             comboBoxCategorie.DataSource = Enum.GetValues(typeof(CategorieType));
-            
+
             iconButtonModifier.Show();
             iconButtonModifier.Enabled = true;
             iconButtonValider.Hide();
@@ -85,7 +76,7 @@ namespace Projet_RMS_Final.View.ChefCuisinier
         private void iconButton1_Click(object sender, EventArgs e)
         {
             RMSApplication.Instance.ShowHomeChefCuisinier();
-            this.Hide();
+            Close();
         }
 
         private void iconButton2_Click(object sender, EventArgs e)
@@ -100,7 +91,7 @@ namespace Projet_RMS_Final.View.ChefCuisinier
                 //QuantiteStock = Convert.ToInt32(textBoxQuantiteStock.Text),
                 produit.Description = textBoxDescription.Text;
                 if (imageFilePath != null)
-                    produit.Image = GetImageBytesFromFilePath(imageFilePath);
+                produit.Image = GetImageBytesFromFilePath(imageFilePath);
                 produit.Categorie = comboBoxCategorie.Text;
 
 
@@ -116,12 +107,13 @@ namespace Projet_RMS_Final.View.ChefCuisinier
                 {
                     CleanForm();
                 }
-                else {
+                else
+                {
                     RMSApplication.Instance.ShowListProduits();
-                    this.Hide();
-                    
+                    Close();
+
                 }
-                
+
             }
         }
 
@@ -239,7 +231,6 @@ namespace Projet_RMS_Final.View.ChefCuisinier
                     currentProduit.Prix = Convert.ToDouble(textBoxPrix.Text);
                     currentProduit.Description = textBoxDescription.Text;
                     currentProduit.Categorie = comboBoxCategorie.Text;
-
                     if (imageFilePath != null)
                         currentProduit.Image = GetImageBytesFromFilePath(imageFilePath);
 

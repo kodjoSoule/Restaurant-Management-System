@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace Projet_RMS_Final.View.Restauranteur
+﻿namespace Projet_RMS_Final.View.Restauranteur
 {
     public partial class HomeRestauranteur : Form
     {
@@ -62,7 +52,7 @@ namespace Projet_RMS_Final.View.Restauranteur
         {
             HomeRestauranteur homeRestauranteur = new HomeRestauranteur();
             homeRestauranteur.Show();
-            this.Hide();
+            Close();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -80,6 +70,44 @@ namespace Projet_RMS_Final.View.Restauranteur
             {
                 Application.Exit();
             }
+        }
+
+        private void listeDesCommandesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListeCommande listeCommande = new ListeCommande();
+            listeCommande.Show();
+            Close();
+        }
+
+        private void listeDesCommandeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListeProduitRestauranteur listeProduitRestauranteur = new ListeProduitRestauranteur();
+            listeProduitRestauranteur.Show();
+            Close();
+        }
+
+        private void deconnecterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RMSApplication.Instance.Deconnexion(this);
+        }
+
+        private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RMSApplication.Instance.quitter();
+        }
+
+        private void listeDesProduitsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListeProduitRestauranteur listeProduitRestauranteur = new ListeProduitRestauranteur();
+            listeProduitRestauranteur.Show();
+            Close();
+        }
+
+        private void listeDesPaiementsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListePaiement listePaiement = new ListePaiement();
+            listePaiement.Show();
+            Close();
         }
     }
 }

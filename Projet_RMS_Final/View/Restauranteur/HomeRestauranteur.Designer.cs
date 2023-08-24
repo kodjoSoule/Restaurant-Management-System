@@ -136,12 +136,14 @@
             deconnecterToolStripMenuItem.Name = "deconnecterToolStripMenuItem";
             deconnecterToolStripMenuItem.Size = new Size(213, 34);
             deconnecterToolStripMenuItem.Text = "Deconnecter";
+            deconnecterToolStripMenuItem.Click += deconnecterToolStripMenuItem_Click;
             // 
             // quitterToolStripMenuItem
             // 
             quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
             quitterToolStripMenuItem.Size = new Size(213, 34);
             quitterToolStripMenuItem.Text = "Quitter";
+            quitterToolStripMenuItem.Click += quitterToolStripMenuItem_Click;
             // 
             // produitsToolStripMenuItem
             // 
@@ -153,8 +155,9 @@
             // listeDesProduitsToolStripMenuItem
             // 
             listeDesProduitsToolStripMenuItem.Name = "listeDesProduitsToolStripMenuItem";
-            listeDesProduitsToolStripMenuItem.Size = new Size(253, 34);
+            listeDesProduitsToolStripMenuItem.Size = new Size(270, 34);
             listeDesProduitsToolStripMenuItem.Text = "Liste des Produits";
+            listeDesProduitsToolStripMenuItem.Click += listeDesProduitsToolStripMenuItem_Click;
             // 
             // aProposToolStripMenuItem
             // 
@@ -169,12 +172,14 @@
             listeDesCommandeToolStripMenuItem.Name = "listeDesCommandeToolStripMenuItem";
             listeDesCommandeToolStripMenuItem.Size = new Size(296, 34);
             listeDesCommandeToolStripMenuItem.Text = "Commande un produit";
+            listeDesCommandeToolStripMenuItem.Click += listeDesCommandeToolStripMenuItem_Click;
             // 
             // listeDesCommandesToolStripMenuItem
             // 
             listeDesCommandesToolStripMenuItem.Name = "listeDesCommandesToolStripMenuItem";
             listeDesCommandesToolStripMenuItem.Size = new Size(296, 34);
             listeDesCommandesToolStripMenuItem.Text = "Liste des Commandes";
+            listeDesCommandesToolStripMenuItem.Click += listeDesCommandesToolStripMenuItem_Click;
             // 
             // paiementsToolStripMenuItem
             // 
@@ -186,8 +191,9 @@
             // listeDesPaiementsToolStripMenuItem
             // 
             listeDesPaiementsToolStripMenuItem.Name = "listeDesPaiementsToolStripMenuItem";
-            listeDesPaiementsToolStripMenuItem.Size = new Size(269, 34);
+            listeDesPaiementsToolStripMenuItem.Size = new Size(270, 34);
             listeDesPaiementsToolStripMenuItem.Text = "Liste des paiements";
+            listeDesPaiementsToolStripMenuItem.Click += listeDesPaiementsToolStripMenuItem_Click;
             // 
             // button3
             // 
@@ -244,7 +250,6 @@
             // 
             // panel1
             // 
-            panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(button1);

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using Projet_RMS_Final.Model;
 using System.Data.SqlClient;
-using Projet_RMS_Final.Model;
 
 namespace Projet_RMS_Final.Dao
 {

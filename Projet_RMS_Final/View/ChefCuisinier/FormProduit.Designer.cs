@@ -66,11 +66,11 @@
             // 
             // comboBoxCategorie
             // 
-            comboBoxCategorie.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            comboBoxCategorie.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             comboBoxCategorie.FormattingEnabled = true;
             comboBoxCategorie.Location = new Point(693, 255);
             comboBoxCategorie.Name = "comboBoxCategorie";
-            comboBoxCategorie.Size = new Size(274, 36);
+            comboBoxCategorie.Size = new Size(349, 40);
             comboBoxCategorie.TabIndex = 32;
             comboBoxCategorie.SelectedIndexChanged += comboBoxCategorie_SelectedIndexChanged;
             // 
@@ -78,21 +78,23 @@
             // 
             textBoxPrix.Location = new Point(693, 186);
             textBoxPrix.Name = "textBoxPrix";
-            textBoxPrix.Size = new Size(274, 31);
+            textBoxPrix.Size = new Size(349, 31);
             textBoxPrix.TabIndex = 28;
             // 
             // textBoxDescription
             // 
+            textBoxDescription.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             textBoxDescription.Location = new Point(693, 125);
             textBoxDescription.Name = "textBoxDescription";
-            textBoxDescription.Size = new Size(274, 31);
+            textBoxDescription.Size = new Size(349, 39);
             textBoxDescription.TabIndex = 27;
             // 
             // textBoxIntitule
             // 
+            textBoxIntitule.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             textBoxIntitule.Location = new Point(692, 67);
             textBoxIntitule.Name = "textBoxIntitule";
-            textBoxIntitule.Size = new Size(274, 31);
+            textBoxIntitule.Size = new Size(350, 39);
             textBoxIntitule.TabIndex = 26;
             // 
             // label8
@@ -178,7 +180,7 @@
             pictureBoxImage.BackColor = Color.White;
             pictureBoxImage.Location = new Point(693, 386);
             pictureBoxImage.Name = "pictureBoxImage";
-            pictureBoxImage.Size = new Size(283, 135);
+            pictureBoxImage.Size = new Size(349, 143);
             pictureBoxImage.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxImage.TabIndex = 37;
             pictureBoxImage.TabStop = false;
@@ -190,7 +192,7 @@
             iconButtonValider.IconColor = Color.Green;
             iconButtonValider.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButtonValider.IconSize = 50;
-            iconButtonValider.Location = new Point(564, 577);
+            iconButtonValider.Location = new Point(595, 577);
             iconButtonValider.Name = "iconButtonValider";
             iconButtonValider.Size = new Size(171, 50);
             iconButtonValider.TabIndex = 38;
@@ -214,9 +216,10 @@
             // 
             // buttonImage
             // 
+            buttonImage.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             buttonImage.Location = new Point(692, 327);
             buttonImage.Name = "buttonImage";
-            buttonImage.Size = new Size(274, 34);
+            buttonImage.Size = new Size(350, 42);
             buttonImage.TabIndex = 40;
             buttonImage.Text = "Charger Image ...";
             buttonImage.UseVisualStyleBackColor = true;
@@ -229,7 +232,7 @@
             iconButtonModifier.IconColor = Color.Green;
             iconButtonModifier.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButtonModifier.IconSize = 50;
-            iconButtonModifier.Location = new Point(379, 577);
+            iconButtonModifier.Location = new Point(566, 577);
             iconButtonModifier.Name = "iconButtonModifier";
             iconButtonModifier.Size = new Size(171, 50);
             iconButtonModifier.TabIndex = 41;

@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Projet_RMS_Final.Model
+﻿namespace Projet_RMS_Final.Model
 {
     public class Produit
     {
@@ -16,14 +9,15 @@ namespace Projet_RMS_Final.Model
         public string Description { get; set; }
         public byte[] Image { get; set; }
         public List<Commande> Commandes { get; set; } = new List<Commande>();
-        public string Categorie { get; set; } 
+        public string Categorie { get; set; }
         public Produit()
         {
             Id = 0;
             QuantiteStock = 0;
-            
-            Description = "" ;
+
+            Description = "";
             Prix = 0;
+            Categorie = "";
             Image = null;
 
         }

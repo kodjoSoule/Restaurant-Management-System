@@ -94,10 +94,10 @@ namespace Projet_RMS_Final.Dao
                                     Date = Convert.ToDateTime(reader["CommandeDate"]),
                                     Status = reader["CommandeStatus"].ToString(),
                                     MontantTotalCommande = (double)reader["MontantTotalCommande"],
-                                    Client = client 
-                                    
+                                    Client = client
+
                                 };
-                                
+
                                 Produit produit = new Produit
                                 {
                                     Id = Convert.ToInt32(reader["ProduitId"]),
@@ -108,11 +108,11 @@ namespace Projet_RMS_Final.Dao
                                 {
                                     //lc.id as ligneCommandeID
                                     Id = Convert.ToInt32(reader["ligneCommandeID"]),
-                                    Commande = commande ,
+                                    Commande = commande,
                                     Produit = produit,
-                                    Quantite = Convert.ToInt32 (reader["Quantite"])
+                                    Quantite = Convert.ToInt32(reader["Quantite"])
                                 };
-                                
+
 
                                 linkedData.Add(new Tuple<Commande, Client, Produit, LigneCommande>(commande, client, produit, ligneCommande));
                             }

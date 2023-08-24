@@ -1,15 +1,6 @@
 ﻿using Projet_RMS_Final.Dao;
 using Projet_RMS_Final.Model;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Projet_RMS_Final.View.Administrateur
 {
@@ -27,7 +18,7 @@ namespace Projet_RMS_Final.View.Administrateur
 
             utilisateurSqlDao = new UtilisateurSqlDaoImpl();
             textBoxId.Enabled = false;
-            
+
             dataGridViewUsers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             loadUtilisateurs();
             ClearRegistrationFields();
@@ -214,7 +205,7 @@ namespace Projet_RMS_Final.View.Administrateur
             DialogResult result = MessageBox.Show("Voulez-vous vraiment supprimer ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                
+
                 if (dataGridViewUsers.SelectedRows.Count > 0)
                 {
                     int selectedUserId = Convert.ToInt32(dataGridViewUsers.SelectedRows[0].Cells["Id"].Value);

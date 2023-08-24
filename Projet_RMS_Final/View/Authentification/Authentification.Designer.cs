@@ -38,6 +38,7 @@
             label2 = new Label();
             buttonConnecter = new Button();
             label1 = new Label();
+            checkBox1 = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -59,6 +60,7 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.BackColor = Color.FromArgb(105, 70, 221);
+            splitContainer1.Panel2.Controls.Add(checkBox1);
             splitContainer1.Panel2.Controls.Add(buttonQuitter);
             splitContainer1.Panel2.Controls.Add(textBoxPassword);
             splitContainer1.Panel2.Controls.Add(textBoxLogin);
@@ -162,6 +164,17 @@
             label1.Text = "Connexion";
             label1.Click += label1_Click;
             // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(136, 444);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(212, 29);
+            checkBox1.TabIndex = 7;
+            checkBox1.Text = "Afficher mot de passe";
+            checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+            // 
             // AuthentificationUI
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -193,5 +206,6 @@
         private Label label3;
         private Label label2;
         private Button buttonQuitter;
+        private CheckBox checkBox1;
     }
 }

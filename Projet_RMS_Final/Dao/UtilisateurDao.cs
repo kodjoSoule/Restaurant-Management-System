@@ -1,12 +1,6 @@
 ﻿using Projet_RMS_Final.Model;
-using Projet_RMS_Final.Dao;
-using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace Projet_RMS_Final.Dao
 {
@@ -15,7 +9,7 @@ namespace Projet_RMS_Final.Dao
         private string connectionString = "Data Source=.;Initial Catalog=dbrms;Integrated Security=True"; // Votre chaîne de connexion à la base de données
         public UtilisateurSqlDaoImpl()
         {
-            
+
         }
         public UtilisateurSqlDaoImpl(string connectionString)
         {

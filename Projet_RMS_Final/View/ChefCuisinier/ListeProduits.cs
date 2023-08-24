@@ -21,6 +21,7 @@ namespace Projet_RMS_Final.View.ChefCuisinier
 
             // Masquer la colonne de l'image
             dataGridView.Columns["Image"].Visible = false;
+            dataGridView.Columns["QuantiteStock"].Visible = false;
 
         }
 
@@ -47,13 +48,13 @@ namespace Projet_RMS_Final.View.ChefCuisinier
         private void iconButton1_Click(object sender, EventArgs e)
         {
             RMSApplication.Instance.ShowHomeChefCuisinier();
-            this.Hide();
+            Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             RMSApplication.Instance.ShowFormProduitUI();
-            this.Hide();
+            Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -64,7 +65,7 @@ namespace Projet_RMS_Final.View.ChefCuisinier
                 // Utilisez le formulaire approprié pour effectuer la modification
                 FormProduit formModification = new FormProduit(selectedProduit);
                 formModification.Show();
-                this.Hide();
+                Close();
                 // Après la modification, rechargez la liste des produits
                 LoadProducts();
             }
@@ -121,7 +122,25 @@ namespace Projet_RMS_Final.View.ChefCuisinier
 
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
+            string searchText = textBoxSearch.Text.ToLower();
 
+            try
+            {
+                ProduitSqlDaoImpl produitSqlDaoImpl = new ProduitSqlDaoImpl();
+                List<Produit> produits = produitSqlDaoImpl.List();
+
+                List<Produit> filteredProduits = produits.Where(u =>
+                    u.Intitule.ToLower().Contains(searchText) ||
+                    u.Description.ToLower().Contains(searchText) ||
+                    u.Categorie.ToLower().Contains(searchText))
+                    .ToList();
+                dataGridView.DataSource = filteredProduits;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Une erreur est survenue lors du filtrage des utilisateurs : " + ex.Message,
+                                "Erreur de filtrage", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)

@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Projet_RMS_Final.Model
 {
@@ -10,7 +9,7 @@ namespace Projet_RMS_Final.Model
         public double MontantRecue { get; set; }
         public double MontantRendue { get; set; }
         public DateTime DatePaiement { get; set; }
-        public string ModePaiement { get; set; }
+        //public string ModePaiement { get; set; }
 
         [ForeignKey("Commande")]
         //public int CommandeId { get; set; }
@@ -23,7 +22,7 @@ namespace Projet_RMS_Final.Model
             MontantRecue = 0;
             MontantRendue = 0;
             DatePaiement = DateTime.Now;
-            ModePaiement = "";
+            //ModePaiement = "";
             //CommandeId = 0;
             Commande = null;
         }

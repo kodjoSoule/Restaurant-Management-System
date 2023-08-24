@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListeCommande));
             dataGridView = new DataGridView();
             iconButton1 = new FontAwesome.Sharp.IconButton();
             button2 = new Button();
@@ -46,6 +47,7 @@
             paiementsToolStripMenuItem = new ToolStripMenuItem();
             listeDesPaiementsToolStripMenuItem = new ToolStripMenuItem();
             buttonSupprimerCommande = new Button();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -54,7 +56,7 @@
             // 
             dataGridView.BackgroundColor = Color.White;
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView.Location = new Point(75, 132);
+            dataGridView.Location = new Point(69, 173);
             dataGridView.Name = "dataGridView";
             dataGridView.RowHeadersWidth = 62;
             dataGridView.RowTemplate.Height = 33;
@@ -69,7 +71,7 @@
             iconButton1.IconColor = Color.Black;
             iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton1.IconSize = 40;
-            iconButton1.Location = new Point(34, 58);
+            iconButton1.Location = new Point(28, 99);
             iconButton1.Name = "iconButton1";
             iconButton1.Size = new Size(150, 45);
             iconButton1.TabIndex = 24;
@@ -84,7 +86,7 @@
             button2.Cursor = Cursors.Hand;
             button2.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
             button2.ForeColor = Color.White;
-            button2.Location = new Point(856, 597);
+            button2.Location = new Point(820, 626);
             button2.Name = "button2";
             button2.Size = new Size(146, 56);
             button2.TabIndex = 20;
@@ -94,7 +96,7 @@
             // 
             // textBoxSearch
             // 
-            textBoxSearch.Location = new Point(446, 67);
+            textBoxSearch.Location = new Point(440, 108);
             textBoxSearch.Name = "textBoxSearch";
             textBoxSearch.Size = new Size(772, 31);
             textBoxSearch.TabIndex = 22;
@@ -104,7 +106,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(286, 67);
+            label5.Location = new Point(280, 108);
             label5.Name = "label5";
             label5.Size = new Size(110, 28);
             label5.TabIndex = 23;
@@ -209,7 +211,7 @@
             buttonSupprimerCommande.Cursor = Cursors.Hand;
             buttonSupprimerCommande.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
             buttonSupprimerCommande.ForeColor = Color.White;
-            buttonSupprimerCommande.Location = new Point(1129, 597);
+            buttonSupprimerCommande.Location = new Point(1019, 626);
             buttonSupprimerCommande.Name = "buttonSupprimerCommande";
             buttonSupprimerCommande.Size = new Size(154, 56);
             buttonSupprimerCommande.TabIndex = 53;
@@ -217,11 +219,25 @@
             buttonSupprimerCommande.UseVisualStyleBackColor = false;
             buttonSupprimerCommande.Click += button1_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(419, 33);
+            label1.Name = "label1";
+            label1.Size = new Size(431, 54);
+            label1.TabIndex = 57;
+            label1.Text = "Liste des Commandes";
+            // 
             // ListeCommande
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1428, 694);
+            Controls.Add(label1);
             Controls.Add(buttonSupprimerCommande);
             Controls.Add(menuStrip1);
             Controls.Add(iconButton1);
@@ -259,5 +275,6 @@
         private ToolStripMenuItem paiementsToolStripMenuItem;
         private ToolStripMenuItem listeDesPaiementsToolStripMenuItem;
         private Button buttonSupprimerCommande;
+        private Label label1;
     }
 }

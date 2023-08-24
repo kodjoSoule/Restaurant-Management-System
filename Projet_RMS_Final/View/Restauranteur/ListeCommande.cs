@@ -1,15 +1,7 @@
 ﻿using Projet_RMS_Final.Dao;
 using Projet_RMS_Final.Model;
 using Projet_RMS_Final.View.ChefCuisinier;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Projet_RMS_Final.View.Restauranteur
 {
@@ -32,6 +24,9 @@ namespace Projet_RMS_Final.View.Restauranteur
             dataGridView.Columns["Id"].Width = 60;
             dataGridView.Columns["ProduitPrix"].Width = 100;
             dataGridView.Columns["CommandeDate"].Width = 300;
+
+            // Associez l'événement RowPrePaint au gestionnaire d'événements dataGridView_RowPrePaint
+            dataGridView.RowPrePaint += dataGridView_RowPrePaint;
         }
 
         private void LoadLinkedData()
@@ -106,23 +101,75 @@ namespace Projet_RMS_Final.View.Restauranteur
             {
                 // Obtenez la ligne de commande sélectionnée dans le DataGridView
                 int idLigneCommande = Convert.ToInt32(dataGridView.SelectedRows[0].Cells["Id"].Value);
-                
+
                 LigneCommande selectedLigneCommande = ligneCommandeSqlDaoImpl.Read(idLigneCommande);
-                
+
                 // Passez la ligne de commande à la fenêtre FormPaiement
                 FormPaiement formPaiement = new FormPaiement(selectedLigneCommande);
                 DialogResult dialogResult = formPaiement.ShowDialog();
                 _ = dialogResult;
+                LoadLigneCommande();
             }
             else
             {
                 MessageBox.Show("Veuillez sélectionner une commande pour effectuer le paiement.", "Avertissement", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+        /*
+        private void dataGridView_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dataGridView.Rows.Count)
+            {
+                DataGridViewRow row = dataGridView.Rows[e.RowIndex];
+
+                // Obtenez la valeur du statut de la commande (colonne "CommandeStatus")
+                string status = row.Cells["CommandeStatus"].Value.ToString();
+
+                // Comparez le statut avec la valeur correspondant à "Payer"
+                if (status == "Payer")
+                {
+                    // Appliquez la couleur verte à la ligne
+                    row.DefaultCellStyle.BackColor = Color.LightGreen;
+                }
+                else
+                {
+                    // Réinitialisez la couleur par défaut
+                    row.DefaultCellStyle.BackColor = dataGridView.DefaultCellStyle.BackColor;
+                }
+            }
+        }
+        */
+        private void dataGridView_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dataGridView.Rows.Count)
+            {
+                DataGridViewRow row = dataGridView.Rows[e.RowIndex];
+
+                // Assurez-vous que la cellule n'est pas null avant d'accéder à la valeur
+                if (row.Cells["CommandeStatus"].Value != null)
+                {
+                    // Obtenez la valeur du statut de la commande (colonne "CommandeStatus")
+                    string status = row.Cells["CommandeStatus"].Value.ToString();
+
+                    // Comparez le statut avec la valeur correspondant à "Payer"
+                    if (status == "Payer")
+                    {
+                        // Appliquez la couleur verte à la ligne
+                        row.DefaultCellStyle.BackColor = Color.LightGreen;
+                    }
+                    else
+                    {
+                        // Réinitialisez la couleur par défaut
+                        row.DefaultCellStyle.BackColor = dataGridView.DefaultCellStyle.BackColor;
+                    }
+                }
+            }
+        }
 
         //
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
+            //
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -171,6 +218,9 @@ namespace Projet_RMS_Final.View.Restauranteur
 
         private void listeDesCommandeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ListeProduitRestauranteur listeProduitRestauranteur = new ListeProduitRestauranteur();
+            listeProduitRestauranteur.Show();
+            Close();
         }
 
         private void listeDesCommandesToolStripMenuItem_Click(object sender, EventArgs e)

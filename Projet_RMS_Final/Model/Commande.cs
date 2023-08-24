@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Projet_RMS_Final.Model
+﻿namespace Projet_RMS_Final.Model
 {
     public class Commande
     {
@@ -10,17 +7,17 @@ namespace Projet_RMS_Final.Model
         public string Status { get; set; }
         //public int Quantite { get; set; }
         //public double MontantTotalProduits { get; set; }
-        public double MontantTotalCommande { get; set; } = 0.0 ;
+        public double MontantTotalCommande { get; set; } = 0.0;
 
         public List<Produit> Produits { get; set; } = new List<Produit>();
         public Utilisateur Restauranteur { get; set; }
         public Paiement Paiement { get; set; }
         public Client Client { get; set; }
-        
+
 
         public List<LigneCommande> LignesCommande { get; set; } = new List<LigneCommande>();
 
-        
+
         public void addProduit(Produit produit)
         {
             //Produits.Add(produit);
@@ -73,5 +70,10 @@ namespace Projet_RMS_Final.Model
             //Quantite = quantite;
             Restauranteur = restauranteur;
         }
+        public override string ToString()
+        {
+            return Id.ToString();
+        }
+
     }
 }

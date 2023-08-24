@@ -1,14 +1,5 @@
 ﻿using Projet_RMS_Final.Dao;
 using Projet_RMS_Final.Model;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Projet_RMS_Final.View.Restauranteur
 {
@@ -57,7 +48,7 @@ namespace Projet_RMS_Final.View.Restauranteur
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(ValidatePayments())
+            if (ValidatePayments())
             {
                 // 1. Créer un objet Paiement
                 Paiement paiement = new Paiement
@@ -65,8 +56,8 @@ namespace Projet_RMS_Final.View.Restauranteur
                     MontantRecue = montantRecue,
                     MontantRendue = montantRendue,
                     DatePaiement = dateTimePickerDatePaiement.Value,
-                    MontantPayer = total ,
-                    Commande = ligneCommande.Commande 
+                    MontantPayer = total,
+                    Commande = ligneCommande.Commande
                 };
 
                 // 2. Enregistrer le paiement dans la base de données

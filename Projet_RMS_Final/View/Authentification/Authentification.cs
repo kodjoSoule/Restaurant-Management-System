@@ -1,16 +1,5 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Projet_RMS_Final.Dao;
+﻿using Projet_RMS_Final.Dao;
 using Projet_RMS_Final.Model;
-using Projet_RMS_Final.View.Administrateur;
 
 
 namespace Projet_RMS_Final.Authentification
@@ -110,7 +99,7 @@ namespace Projet_RMS_Final.Authentification
                                 //HomeAdministrateur homeAdministrateur = new HomeAdministrateur();
                                 //homeAdministrateur.Show();
                                 //homeAdministrateur.setUtilisateur(utilisateur);
-                                
+
                                 RMSApplication.Instance.ShowHomeAdministrateurUI();
                                 this.cleanForm();
                                 this.Hide();
@@ -163,10 +152,22 @@ namespace Projet_RMS_Final.Authentification
                 Application.Exit();
             }
         }
-        
+
         private void textBoxLogin_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                textBoxPassword.PasswordChar = '\0'; // Affiche le texte brut
+            }
+            else
+            {
+                textBoxPassword.PasswordChar = '*'; // Masque le texte avec un caractère '*'
+            }
         }
     }
 

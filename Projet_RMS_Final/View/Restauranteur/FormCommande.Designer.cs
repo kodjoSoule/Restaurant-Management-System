@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCommande));
             label9 = new Label();
             iconButton1 = new FontAwesome.Sharp.IconButton();
             buttonEffacer = new Button();
@@ -72,6 +73,7 @@
             // 
             label9.AutoSize = true;
             label9.BackColor = Color.Transparent;
+            label9.FlatStyle = FlatStyle.Flat;
             label9.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label9.ForeColor = Color.White;
             label9.Location = new Point(81, 144);
@@ -90,7 +92,7 @@
             iconButton1.IconSize = 40;
             iconButton1.Location = new Point(41, 53);
             iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(150, 54);
+            iconButton1.Size = new Size(150, 41);
             iconButton1.TabIndex = 38;
             iconButton1.Text = "Retour";
             iconButton1.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -99,12 +101,12 @@
             // 
             // buttonEffacer
             // 
-            buttonEffacer.BackColor = Color.Red;
+            buttonEffacer.BackColor = Color.Snow;
             buttonEffacer.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonEffacer.ForeColor = Color.White;
+            buttonEffacer.ForeColor = Color.Red;
             buttonEffacer.Location = new Point(822, 493);
             buttonEffacer.Name = "buttonEffacer";
-            buttonEffacer.Size = new Size(127, 46);
+            buttonEffacer.Size = new Size(119, 50);
             buttonEffacer.TabIndex = 36;
             buttonEffacer.Text = "Effacer";
             buttonEffacer.UseVisualStyleBackColor = false;
@@ -113,6 +115,7 @@
             // buttonEnregistrer
             // 
             buttonEnregistrer.BackColor = Color.White;
+            buttonEnregistrer.Cursor = Cursors.Hand;
             buttonEnregistrer.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
             buttonEnregistrer.ForeColor = Color.FromArgb(105, 70, 221);
             buttonEnregistrer.Location = new Point(433, 578);
@@ -177,6 +180,7 @@
             // 
             label8.AutoSize = true;
             label8.BackColor = Color.Transparent;
+            label8.FlatStyle = FlatStyle.Flat;
             label8.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label8.ForeColor = Color.White;
             label8.Location = new Point(597, 142);
@@ -309,7 +313,7 @@
             label11.AutoSize = true;
             label11.BackColor = Color.Transparent;
             label11.Font = new Font("Segoe UI", 20F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label11.ForeColor = Color.White;
+            label11.ForeColor = Color.Black;
             label11.Location = new Point(377, 53);
             label11.Name = "label11";
             label11.Size = new Size(599, 54);
@@ -336,9 +340,10 @@
             // 
             // buttonAnnuler
             // 
-            buttonAnnuler.BackColor = Color.White;
+            buttonAnnuler.BackColor = SystemColors.ScrollBar;
+            buttonAnnuler.Cursor = Cursors.Hand;
             buttonAnnuler.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonAnnuler.ForeColor = Color.FromArgb(105, 70, 221);
+            buttonAnnuler.ForeColor = Color.Red;
             buttonAnnuler.Location = new Point(611, 578);
             buttonAnnuler.Name = "buttonAnnuler";
             buttonAnnuler.Size = new Size(127, 46);
@@ -367,20 +372,20 @@
             // accueilToolStripMenuItem
             // 
             accueilToolStripMenuItem.Name = "accueilToolStripMenuItem";
-            accueilToolStripMenuItem.Size = new Size(270, 34);
+            accueilToolStripMenuItem.Size = new Size(213, 34);
             accueilToolStripMenuItem.Text = "Accueil";
             accueilToolStripMenuItem.Click += accueilToolStripMenuItem_Click;
             // 
             // deconnecterToolStripMenuItem
             // 
             deconnecterToolStripMenuItem.Name = "deconnecterToolStripMenuItem";
-            deconnecterToolStripMenuItem.Size = new Size(270, 34);
+            deconnecterToolStripMenuItem.Size = new Size(213, 34);
             deconnecterToolStripMenuItem.Text = "Deconnecter";
             // 
             // quitterToolStripMenuItem
             // 
             quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
-            quitterToolStripMenuItem.Size = new Size(270, 34);
+            quitterToolStripMenuItem.Size = new Size(213, 34);
             quitterToolStripMenuItem.Text = "Quitter";
             // 
             // produitsToolStripMenuItem
@@ -432,7 +437,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Chocolate;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1428, 694);
             Controls.Add(menuStrip1);
             Controls.Add(buttonAnnuler);

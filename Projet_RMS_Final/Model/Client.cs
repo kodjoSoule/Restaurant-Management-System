@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Projet_RMS_Final.Model
+﻿namespace Projet_RMS_Final.Model
 {
     public class Client
     {

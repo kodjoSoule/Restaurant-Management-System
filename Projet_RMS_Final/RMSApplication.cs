@@ -4,16 +4,11 @@ using Projet_RMS_Final.Model;
 using Projet_RMS_Final.View.Administrateur;
 using Projet_RMS_Final.View.ChefCuisinier;
 using Projet_RMS_Final.View.Restauranteur;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Projet_RMS_Final
 {
 
-    
+
 
     internal class RMSApplication
     {
@@ -27,7 +22,7 @@ namespace Projet_RMS_Final
 
             //Application.Run(new Form1());
             //Application.Run(new Authentification.AuthentificationUI());
-            
+
             RMSApplication.Instance.Run();
             //RMSApplication.instance.ShowFormProduitUI();
 
@@ -96,8 +91,8 @@ namespace Projet_RMS_Final
         internal void Deconnexion(Form? f)
         {
             RMSApplication.Instance.ShowAuthentificationUI();
-            if(f!= null ) 
-            f.Close();
+            if (f != null)
+                f.Close();
         }
         internal void quitter()
         {
@@ -107,7 +102,7 @@ namespace Projet_RMS_Final
                 Application.Exit();
             }
         }
-        
+
 
     }
 }

@@ -1,14 +1,5 @@
 ﻿using Projet_RMS_Final.Dao;
 using Projet_RMS_Final.Model;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Projet_RMS_Final.View.Restauranteur
 {
@@ -30,6 +21,10 @@ namespace Projet_RMS_Final.View.Restauranteur
             this.produit = produit;
             InitializeComponent();
             setProduit(produit);
+            //
+            comboBoxStatut.DataSource = Enum.GetValues(typeof(Statut));
+            comboBoxStatut.Enabled = false;
+            comboBoxStatut.SelectedIndex = 0;
         }
         public FormCommande()
         {
@@ -139,7 +134,7 @@ namespace Projet_RMS_Final.View.Restauranteur
 
         private void buttonAnnuler_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Close();
             ListeProduitRestauranteur listeProduitRestauranteur = new ListeProduitRestauranteur();
             listeProduitRestauranteur.Show();
         }
@@ -202,6 +197,9 @@ namespace Projet_RMS_Final.View.Restauranteur
                     commandeDao.Update(commande);
 
                     MessageBox.Show("La commande a été enregistrée avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ListeCommande listeCommande = new ListeCommande();
+                    listeCommande.Show();
+                    Close();
                 }
 
                 catch (Exception ex)
@@ -219,14 +217,14 @@ namespace Projet_RMS_Final.View.Restauranteur
         {
             HomeRestauranteur homeRestauranteur = new HomeRestauranteur();
             homeRestauranteur.Show();
-            this.Hide();
+            Close();
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
             ListeProduitRestauranteur listeProduitRestauranteur = new ListeProduitRestauranteur();
             listeProduitRestauranteur.Show();
-            this.Hide();
+            Close();
         }
 
         private void comboBoxStatut_SelectedIndexChanged(object sender, EventArgs e)
