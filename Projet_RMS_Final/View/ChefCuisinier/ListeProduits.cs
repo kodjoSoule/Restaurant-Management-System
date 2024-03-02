@@ -120,28 +120,30 @@ namespace Projet_RMS_Final.View.ChefCuisinier
             */
         }
 
-        private void textBoxSearch_TextChanged(object sender, EventArgs e)
-        {
-            string searchText = textBoxSearch.Text.ToLower();
-
-            try
+            private void textBoxSearch_TextChanged(object sender, EventArgs e)
             {
-                ProduitSqlDaoImpl produitSqlDaoImpl = new ProduitSqlDaoImpl();
-                List<Produit> produits = produitSqlDaoImpl.List();
+                string searchText = textBoxSearch.Text.ToLower();
 
-                List<Produit> filteredProduits = produits.Where(u =>
-                    u.Intitule.ToLower().Contains(searchText) ||
-                    u.Description.ToLower().Contains(searchText) ||
-                    u.Categorie.ToLower().Contains(searchText))
-                    .ToList();
-                dataGridView.DataSource = filteredProduits;
+                try
+                {
+                    List<Produit> produits = produitSqlDao.List();
+
+                    List<Produit> filteredProduits = produits.Where(p =>
+                        p.Intitule.ToLower().Contains(searchText) ||
+                        p.Description.ToLower().Contains(searchText) ||
+                        p.Categorie.ToString().ToLower().Contains(searchText))
+                        .ToList();
+
+                    dataGridView.DataSource = filteredProduits;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Une erreur est survenue lors du filtrage des produits : " + ex.Message,
+                                    "Erreur de filtrage", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Une erreur est survenue lors du filtrage des utilisateurs : " + ex.Message,
-                                "Erreur de filtrage", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+
+        
 
         private void label1_Click(object sender, EventArgs e)
         {

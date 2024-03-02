@@ -25,7 +25,7 @@ namespace Projet_RMS_Final.Dao
                 try
                 {
                     connection.Open();
-                    string query = "INSERT INTO T_Produits (intitule, prix, quantiteStock, description, image) VALUES (@intitule, @prix, @quantiteStock, @description, @image)";
+                    string query = "INSERT INTO T_Produits (intitule, prix, quantiteStock, description, image, categorie) VALUES (@intitule, @prix, @quantiteStock, @description, @image, @categorie)";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@id", entity.Id);
@@ -34,7 +34,7 @@ namespace Projet_RMS_Final.Dao
                         command.Parameters.AddWithValue("@quantiteStock", entity.QuantiteStock);
                         command.Parameters.AddWithValue("@description", entity.Description);
                         command.Parameters.AddWithValue("@image", entity.Image);
-
+                        command.Parameters.AddWithValue("@categorie", entity.Categorie);
                         command.ExecuteNonQuery();
                     }
                 }
@@ -68,7 +68,8 @@ namespace Projet_RMS_Final.Dao
                                     Prix = Convert.ToDouble(reader["prix"]),
                                     QuantiteStock = Convert.ToInt32(reader["quantiteStock"]),
                                     Description = reader["description"].ToString(),
-                                    Image = (byte[])reader["image"]
+                                    Image = (byte[])reader["image"],
+                                    Categorie = reader["categorie"].ToString()
                                 };
                                 return produit;
                             }
@@ -93,7 +94,7 @@ namespace Projet_RMS_Final.Dao
                 try
                 {
                     connection.Open();
-                    string query = "UPDATE T_Produits SET intitule = @intitule, prix = @prix, quantiteStock = @quantiteStock, description = @description, image = @image WHERE id = @id";
+                    string query = "UPDATE T_Produits SET intitule = @intitule, prix = @prix, quantiteStock = @quantiteStock, description = @description,categorie=@categorie, image = @image WHERE id = @id";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@id", entity.Id);
@@ -102,6 +103,7 @@ namespace Projet_RMS_Final.Dao
                         command.Parameters.AddWithValue("@quantiteStock", entity.QuantiteStock);
                         command.Parameters.AddWithValue("@description", entity.Description);
                         command.Parameters.AddWithValue("@image", entity.Image);
+                        command.Parameters.AddWithValue("@categorie", entity.Categorie);
 
                         command.ExecuteNonQuery();
                     }
@@ -155,9 +157,10 @@ namespace Projet_RMS_Final.Dao
                                     Id = Convert.ToInt32(reader["id"]),
                                     Intitule = reader["intitule"].ToString(),
                                     Prix = Convert.ToDouble(reader["prix"]),
-                                    QuantiteStock = Convert.ToInt32(reader["quantiteStock"]),
+                                    //QuantiteStock = Convert.ToInt32(reader["quantiteStock"]),
                                     Description = reader["description"].ToString(),
-                                    Image = (byte[])reader["image"]
+                                    Image = (byte[])reader["image"],
+                                    Categorie = reader["categorie"].ToString()
                                 };
                                 produits.Add(produit);
                             }

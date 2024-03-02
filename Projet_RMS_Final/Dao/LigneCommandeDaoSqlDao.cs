@@ -1,4 +1,5 @@
 ﻿using Projet_RMS_Final.Model;
+using Projet_RMS_Final.View.Restauranteur;
 using System.Data.SqlClient;
 
 namespace Projet_RMS_Final.Dao
@@ -281,7 +282,10 @@ namespace Projet_RMS_Final.Dao
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("Erreur lors de la récupération de la liste : " + ex.Message);
+                    ListeCommande listeCommande = new ListeCommande();
+                    listeCommande.Show();
+                    
+                    //throw new Exception("Erreur lors de la récupération de la liste : " + ex.Message);
                 }
             }
             return lignesCommande;

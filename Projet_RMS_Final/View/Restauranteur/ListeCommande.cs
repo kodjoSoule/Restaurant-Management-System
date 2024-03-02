@@ -104,11 +104,13 @@ namespace Projet_RMS_Final.View.Restauranteur
 
                 LigneCommande selectedLigneCommande = ligneCommandeSqlDaoImpl.Read(idLigneCommande);
 
-                // Passez la ligne de commande à la fenêtre FormPaiement
-                FormPaiement formPaiement = new FormPaiement(selectedLigneCommande);
-                DialogResult dialogResult = formPaiement.ShowDialog();
-                _ = dialogResult;
-                LoadLigneCommande();
+                
+            
+                    FormPaiement formPaiement = new FormPaiement(selectedLigneCommande);
+                    DialogResult dialogResult = formPaiement.ShowDialog();
+                    _ = dialogResult;
+                    LoadLigneCommande();
+                
             }
             else
             {

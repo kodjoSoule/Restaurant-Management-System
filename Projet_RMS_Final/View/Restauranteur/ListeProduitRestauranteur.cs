@@ -11,7 +11,11 @@ namespace Projet_RMS_Final.View.Restauranteur
         {
             InitializeComponent();
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            //QuantiteStock
+            
             LoadProducts();
+            dataGridView.Columns["QuantiteStock"].Visible = false;
+            dataGridView.Columns["Categorie"].Visible = false;
         }
 
         private void iconButton1_Click(object sender, EventArgs e)

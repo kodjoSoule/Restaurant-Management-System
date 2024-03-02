@@ -42,11 +42,11 @@
             fichierToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1 = new MenuStrip();
             iconButton1 = new FontAwesome.Sharp.IconButton();
-            label5 = new Label();
-            textBoxSearch = new TextBox();
             dataGridView = new DataGridView();
             label1 = new Label();
             comboBox1 = new ComboBox();
+            label2 = new Label();
+            labelTotal = new Label();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
@@ -154,24 +154,6 @@
             iconButton1.UseVisualStyleBackColor = true;
             iconButton1.Click += iconButton1_Click;
             // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(284, 144);
-            label5.Name = "label5";
-            label5.Size = new Size(110, 28);
-            label5.TabIndex = 57;
-            label5.Text = "Recherche";
-            // 
-            // textBoxSearch
-            // 
-            textBoxSearch.Location = new Point(444, 144);
-            textBoxSearch.Name = "textBoxSearch";
-            textBoxSearch.Size = new Size(253, 31);
-            textBoxSearch.TabIndex = 56;
-            textBoxSearch.TextChanged += textBoxSearch_TextChanged;
-            // 
             // dataGridView
             // 
             dataGridView.BackgroundColor = Color.White;
@@ -180,7 +162,7 @@
             dataGridView.Name = "dataGridView";
             dataGridView.RowHeadersWidth = 62;
             dataGridView.RowTemplate.Height = 33;
-            dataGridView.Size = new Size(1278, 434);
+            dataGridView.Size = new Size(1278, 375);
             dataGridView.TabIndex = 54;
             // 
             // label1
@@ -198,11 +180,30 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(758, 144);
+            comboBox1.Location = new Point(350, 135);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(334, 33);
             comboBox1.TabIndex = 61;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(123, 605);
+            label2.Name = "label2";
+            label2.Size = new Size(65, 32);
+            label2.TabIndex = 62;
+            label2.Text = "Total";
+            // 
+            // labelTotal
+            // 
+            labelTotal.AutoSize = true;
+            labelTotal.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labelTotal.Location = new Point(207, 605);
+            labelTotal.Name = "labelTotal";
+            labelTotal.Size = new Size(0, 32);
+            labelTotal.TabIndex = 63;
             // 
             // ListePaiement
             // 
@@ -210,12 +211,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1428, 694);
+            Controls.Add(labelTotal);
+            Controls.Add(label2);
             Controls.Add(comboBox1);
             Controls.Add(label1);
             Controls.Add(menuStrip1);
             Controls.Add(iconButton1);
-            Controls.Add(label5);
-            Controls.Add(textBoxSearch);
             Controls.Add(dataGridView);
             Name = "ListePaiement";
             StartPosition = FormStartPosition.CenterScreen;
@@ -244,12 +245,12 @@
         private ToolStripMenuItem fichierToolStripMenuItem;
         private MenuStrip menuStrip1;
         private FontAwesome.Sharp.IconButton iconButton1;
-        private Label label5;
-        private TextBox textBoxSearch;
         private Button button2;
         private DataGridView dataGridView;
         private Button buttonDetails;
         private Label label1;
         private ComboBox comboBox1;
+        private Label label2;
+        private Label labelTotal;
     }
 }

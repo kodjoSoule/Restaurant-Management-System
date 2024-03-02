@@ -61,7 +61,6 @@ namespace Projet_RMS_Final.View.Administrateur
                 try
                 {
                     UtilisateurSqlDaoImpl utilisateurDao = new UtilisateurSqlDaoImpl();
-                    MessageBox.Show(selectedUtilisateur.ToString());
                     utilisateurDao.Update(selectedUtilisateur);
                     MessageBox.Show("Utilisateur mis à jour avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -382,6 +381,19 @@ namespace Projet_RMS_Final.View.Administrateur
         private void textBoxId_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            //
+            if (checkBox1.Checked)
+            {
+                textBoxPassword.PasswordChar = '\0'; // Affiche le texte brut
+            }
+            else
+            {
+                textBoxPassword.PasswordChar = '*'; // Masque le texte avec un caractère '*'
+            }
         }
     }
 }

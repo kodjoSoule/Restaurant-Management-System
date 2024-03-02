@@ -10,7 +10,7 @@ namespace Projet_RMS_Final.View.Restauranteur
     {
         private PaiementSqlDaoImpl paiementDao = new PaiementSqlDaoImpl();
         private List<Paiement> paiements;
-        
+
         public ListePaiement()
         {
             InitializeComponent();
@@ -42,6 +42,12 @@ namespace Projet_RMS_Final.View.Restauranteur
                 dataGridView.AutoGenerateColumns = true;
                 dataGridView.DataSource = paiements;
                 //dataGridView.Columns["Commande_id"].Visible = false;
+
+                // Calculer le total des paiements
+                double totalPaiements = paiements.Sum(p => p.MontantPayer);
+
+                // Afficher le total dans le label
+                labelTotal.Text = "Total des paiements : " + totalPaiements + " FCFA";
             }
             catch (Exception ex)
             {
@@ -103,38 +109,38 @@ namespace Projet_RMS_Final.View.Restauranteur
 
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
-            private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedItem.ToString() == "Journalier")
             {
-                if (comboBox1.SelectedItem.ToString() == "Journalier")
-                {
-                    // Chargez les paiements journaliers
-                    LoadPaiementsByDateRange(DateTime.Today, DateTime.Today);
-                }
-                else if (comboBox1.SelectedItem.ToString() == "Hebdomadaire")
-                {
-                    // Calculez les dates de début et de fin de la semaine en cours
-                    DateTime today = DateTime.Today;
-                    DateTime startOfWeek = today.AddDays(-(int)today.DayOfWeek);
-                    DateTime endOfWeek = startOfWeek.AddDays(6);
-
-                    // Chargez les paiements hebdomadaires
-                    LoadPaiementsByDateRange(startOfWeek, endOfWeek);
-                }
-                else if (comboBox1.SelectedItem.ToString() == "Mensuel")
-                {
-                    // Calculez les dates de début et de fin du mois en cours
-                    DateTime today = DateTime.Today;
-                    DateTime startOfMonth = new DateTime(today.Year, today.Month, 1);
-                    DateTime endOfMonth = startOfMonth.AddMonths(1).AddDays(-1);
-
-                    // Chargez les paiements mensuels
-                    LoadPaiementsByDateRange(startOfMonth, endOfMonth);
-                }
+                // Chargez les paiements journaliers
+                LoadPaiementsByDateRange(DateTime.Today, DateTime.Today);
             }
+            else if (comboBox1.SelectedItem.ToString() == "Hebdomadaire")
+            {
+                // Calculez les dates de début et de fin de la semaine en cours
+                DateTime today = DateTime.Today;
+                DateTime startOfWeek = today.AddDays(-(int)today.DayOfWeek);
+                DateTime endOfWeek = startOfWeek.AddDays(6);
 
-        
+                // Chargez les paiements hebdomadaires
+                LoadPaiementsByDateRange(startOfWeek, endOfWeek);
+            }
+            else if (comboBox1.SelectedItem.ToString() == "Mensuel")
+            {
+                // Calculez les dates de début et de fin du mois en cours
+                DateTime today = DateTime.Today;
+                DateTime startOfMonth = new DateTime(today.Year, today.Month, 1);
+                DateTime endOfMonth = startOfMonth.AddMonths(1).AddDays(-1);
+
+                // Chargez les paiements mensuels
+                LoadPaiementsByDateRange(startOfMonth, endOfMonth);
+            }
+        }
+
+
         private void LoadPaiementsByDateRange(DateTime startDate, DateTime endDate)
         {
             try
@@ -143,6 +149,8 @@ namespace Projet_RMS_Final.View.Restauranteur
 
                 dataGridView.AutoGenerateColumns = true;
                 dataGridView.DataSource = paiements;
+
+
             }
             catch (Exception ex)
             {
@@ -151,6 +159,6 @@ namespace Projet_RMS_Final.View.Restauranteur
         }
 
 
-        
+
     }
 }

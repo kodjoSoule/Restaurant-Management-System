@@ -71,6 +71,9 @@ namespace Projet_RMS_Final.View.Restauranteur
                 CommandeSqlDaoImpl commandeSqlDaoImpl = new CommandeSqlDaoImpl();
                 commandeSqlDaoImpl.Update(ligneCommande.Commande); // Remplacez par la méthode appropriée
                 MessageBox.Show("Paiement effectué avec succès.");
+                //ici
+                HomeRestauranteur homeRestauranteur = new HomeRestauranteur();
+                homeRestauranteur.Show();
                 Close();
 
             }

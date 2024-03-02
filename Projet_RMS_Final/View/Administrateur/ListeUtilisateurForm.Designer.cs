@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             splitContainer1 = new SplitContainer();
+            checkBox1 = new CheckBox();
             textBoxId = new TextBox();
             label9 = new Label();
             iconButton1 = new FontAwesome.Sharp.IconButton();
@@ -70,6 +71,7 @@
             // splitContainer1.Panel1
             // 
             splitContainer1.Panel1.BackColor = Color.FromArgb(105, 70, 221);
+            splitContainer1.Panel1.Controls.Add(checkBox1);
             splitContainer1.Panel1.Controls.Add(textBoxId);
             splitContainer1.Panel1.Controls.Add(label9);
             splitContainer1.Panel1.Controls.Add(iconButton1);
@@ -104,10 +106,21 @@
             splitContainer1.TabIndex = 0;
             splitContainer1.SplitterMoved += splitContainer1_SplitterMoved;
             // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(299, 380);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(212, 29);
+            checkBox1.TabIndex = 21;
+            checkBox1.Text = "Afficher mot de passe";
+            checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+            // 
             // textBoxId
             // 
             textBoxId.Cursor = Cursors.Hand;
-            textBoxId.Location = new Point(304, 89);
+            textBoxId.Location = new Point(300, 108);
             textBoxId.Name = "textBoxId";
             textBoxId.Size = new Size(274, 31);
             textBoxId.TabIndex = 20;
@@ -133,9 +146,9 @@
             iconButton1.IconColor = Color.Green;
             iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton1.IconSize = 40;
-            iconButton1.Location = new Point(12, 52);
+            iconButton1.Location = new Point(25, 25);
             iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(150, 55);
+            iconButton1.Size = new Size(150, 45);
             iconButton1.TabIndex = 18;
             iconButton1.Text = "Accueil";
             iconButton1.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -208,8 +221,9 @@
             // 
             // textBoxPassword
             // 
-            textBoxPassword.Location = new Point(301, 354);
+            textBoxPassword.Location = new Point(301, 342);
             textBoxPassword.Name = "textBoxPassword";
+            textBoxPassword.PasswordChar = '*';
             textBoxPassword.Size = new Size(274, 31);
             textBoxPassword.TabIndex = 11;
             textBoxPassword.TextChanged += textBox4_TextChanged;
@@ -286,7 +300,7 @@
             label3.BackColor = Color.FromArgb(105, 70, 221);
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(21, 343);
+            label3.Location = new Point(21, 331);
             label3.Name = "label3";
             label3.Padding = new Padding(5);
             label3.Size = new Size(176, 42);
@@ -441,5 +455,6 @@
         private FontAwesome.Sharp.IconButton iconButton1;
         private TextBox textBoxId;
         private Label label9;
+        private CheckBox checkBox1;
     }
 }
